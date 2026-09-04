@@ -1,3 +1,1 @@
-// 完成 Google Apps Script 部署後，把網址貼在引號內。
-// 尚未設定時留空，網站會顯示內建示範資料。
-window.HLPB_DATA_URL = "";
+window.HLPB_DATA_URL = "https://script.google.com/macros/s/AKfycbwBsqmqjOSJg4nJQt6bZXz35FjpUrivES_ouDlFX5HvXjVsssaUWzrA0YL2JhP8W4Gv/exec";
