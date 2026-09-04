@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="花蓮匹克球場地、球局、比賽與器材資訊整理。">
+  <title>HLPB 花蓮匹克球資訊站</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#top"><span>HLPB</span><b>花蓮匹克球資訊站</b></a>
+    <button class="menu-button" type="button" aria-label="開啟選單" aria-expanded="false">☰</button>
+    <nav>
+      <a href="#courts">找球場</a><a href="#groups">揪打球</a><a href="#events">想參賽</a><a href="#gear">器材建議</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div id="hero-image" class="hero-image"><span>首頁圖片可從試算表加入</span></div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p>HUALIEN × PICKLEBALL</p>
+        <h1 id="hero-title">花蓮打匹克球，<br>從這裡開始。</h1>
+        <h2 id="hero-subtitle">找球場、揪打球、看比賽、學規則、買球具</h2>
+        <a id="hero-button" class="button yellow" href="#explore">開始探索 →</a>
+      </div>
+      <div class="slide-controls"><button id="slide-prev" type="button" aria-label="上一張">‹</button><span id="slide-count">1 / 1</span><button id="slide-next" type="button" aria-label="下一張">›</button></div>
+    </section>
+
+    <div class="ticker"><b>HLPB NEWS</b><span>公開、可查證、好找到的花蓮匹克球資訊</span></div>
+
+    <section class="section" id="explore">
+      <div class="section-title"><div><p>START HERE</p><h2>你今天想找什麼？</h2></div></div>
+      <div class="entries">
+        <a href="#courts"><i>⌖</i><b>找球場</b><small>場地設備、開放與地圖</small><span>→</span></a>
+        <a href="#groups"><i>＋</i><b>揪打球</b><small>找球局與外部報名</small><span>→</span></a>
+        <a href="#events"><i>▣</i><b>想參賽</b><small>花蓮與花東近期賽事</small><span>→</span></a>
+        <a href="#gear"><i>◇</i><b>器材建議</b><small>先看需求，再選器材</small><span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section cream" id="news">
+      <div class="section-title"><div><p>LATEST</p><h2>最新消息</h2></div><span>最新三筆消息，之後直接從試算表更新。</span></div>
+      <div id="news-list" class="news-list"></div>
+    </section>
+
+    <section class="section" id="courts">
+      <div class="section-title split"><div><p>WHERE TO PLAY</p><h2>找球場</h2></div><label class="search">⌕<input id="court-search" type="search" placeholder="搜尋場地、地區或設備"></label></div>
+      <div id="court-list" class="court-grid"></div>
+      <p id="court-empty" class="empty" hidden>找不到符合的球場，換個關鍵字試試看。</p>
+    </section>
+
+    <section class="groups" id="groups">
+      <div><p>PLAY TOGETHER</p><h2>揪打球，<br>報名不用再接龍。</h2><span>HLPB 顯示球局摘要、剩餘名額與狀態；開團、候補、分帳與通知，第一階段交由匹皮哥處理。</span></div>
+      <div class="panel"><b>球局資訊</b><div id="group-list"></div><a class="button yellow" href="https://pipibro.com/" target="_blank" rel="noopener noreferrer">前往匹皮哥 →</a></div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="section-title"><div><p>TOURNAMENTS</p><h2>想參賽</h2></div></div>
+      <div id="event-list" class="event-list"></div>
+    </section>
+
+    <section class="gear" id="gear">
+      <div class="gear-intro"><p>EQUIPMENT GUIDE</p><h2>先了解需求，<br>再決定買什麼。</h2><span>從重量、揮重、握把、拍型、表面與內芯，客觀整理器材差異。</span></div>
+      <div id="gear-list" class="checks"></div>
+    </section>
+  </main>
+
+  <footer id="about"><div class="brand"><span>HLPB</span><b>花蓮匹克球資訊站</b></div><p>民間自發的地方資訊服務平台，非政府、體育會、協會或其他官方組織。</p><small>場地開放、活動內容與賽事規定，請以管理或主辦單位最新公告為準。</small><b>© 2026 HLPB</b></footer>
+</body>
+</html>
