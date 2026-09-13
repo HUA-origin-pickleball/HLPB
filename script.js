@@ -50,6 +50,8 @@
   const menu=$(".menu-button");if(menu)menu.addEventListener("click",()=>{const open=$(".site-header").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
   const prev=$("#slide-prev"),nextButton=$("#slide-next");if(prev)prev.addEventListener("click",()=>next(-1));if(nextButton)nextButton.addEventListener("click",()=>next(1));
   const search=$("#court-search");if(search)search.addEventListener("input",e=>{const q=e.target.value.trim().toLowerCase();renderCourts(q?data.courts.filter(x=>[x.name,x.area,x.indoor,x.net,x.lighting].join(" ").toLowerCase().includes(q)):data.courts)});
+  const footerCredit=document.querySelector("footer small");
+  if(footerCredit&&!footerCredit.textContent.includes("原點匹克球")) footerCredit.textContent+="｜由原點匹克球管理與維護";
   render();
   if(window.HLPB_DATA_URL)fetch(window.HLPB_DATA_URL).then(r=>{if(!r.ok)throw Error("bad response");return r.json()}).then(v=>{data={...fallback,...v};slide=0;render();clearInterval(timer);if(data.slides.length>1)timer=setInterval(()=>next(1),6500)}).catch(()=>console.warn("HLPB 公開資料暫時無法讀取，已顯示內建資料。"));
 })();
