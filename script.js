@@ -26,7 +26,28 @@
     $("#news-title").textContent=x.title;$("#news-intro").textContent=x.summary||"";
     detail.innerHTML=`${x.imageUrl?`<img class="article-cover" src="${safeUrl(x.imageUrl)}" alt="${safe(x.coverImageAlt||x.title)}">`:""}<div class="article-meta"><span class="tag">${safe(x.category||"最新消息")}</span><time>發布：${fmt(x.date)}</time>${x.updatedDate?`<time>更新：${fmt(x.updatedDate)}</time>`:""}</div><div class="prose">${articleBody(x.content||x.summary)}</div>${x.ctaText&&x.ctaUrl?`<a class="button outline" href="${safeUrl(x.ctaUrl)}">${safe(x.ctaText)}</a>`:""}${x.lastVerifiedDate?`<p class="article-source">最後查證：${fmt(x.lastVerifiedDate)}${x.sources?`｜資料來源：${safe(x.sources)}`:""}</p>`:""}`
   }
-  function renderCourts(list=data.courts){if(!$("#court-list"))return;$("#court-list").innerHTML=list.map(x=>`<article class="card"><div class="card-image" role="img" aria-label="${safe(x.name)}照片" ${imageStyle(x.imageUrl)}></div><div class="card-body"><div class="tags"><span class="tag">${safe(x.area)}</span><span class="tag">${safe(x.indoor)}</span></div><h2>${safe(x.name)}</h2><dl class="facts"><div><dt>球場</dt><dd>${safe(x.courts)} 面</dd></div><div><dt>球網</dt><dd>${safe(x.net)}</dd></div><div><dt>照明</dt><dd>${safe(x.lighting)}</dd></div><div><dt>費用</dt><dd>${safe(x.fee)}</dd></div></dl><p>${safe(x.hours)}</p><p class="note">${safe(x.note)}</p><a class="text-link" href="${safeUrl(x.mapUrl)}" target="_blank" rel="noopener noreferrer">開啟地圖</a></div></article>`).join("");$("#court-empty").hidden=!!list.length}
+  function courtMeta(x){
+    const parts=String(x.note||"").split("｜").map(v=>v.trim()).filter(Boolean);
+    const info={collaboration:false,bookingUrl:"",lineId:"",notes:[]};
+    parts.forEach(part=>{
+      if(part.startsWith("【合作場館資訊】")){info.collaboration=true;info.notes.push(part.replace("【合作場館資訊】","").trim())}
+      else if(part.startsWith("【預約網址】")) info.bookingUrl=part.replace("【預約網址】","").trim();
+      else if(part.startsWith("【LINE】")) info.lineId=part.replace("【LINE】","").trim();
+      else info.notes.push(part);
+    });
+    return info
+  }
+  function renderCourts(list=data.courts){
+    if(!$("#court-list"))return;
+    $("#court-list").innerHTML=list.map(x=>{
+      const meta=courtMeta(x);
+      const facts=[["球場",x.courts,x.courts?`${safe(x.courts)} 面`:""],["球網",x.net,safe(x.net)],["照明",x.lighting,safe(x.lighting)],["費用",x.fee,safe(x.fee)]].filter(item=>String(item[1]||"").trim());
+      const factsHtml=facts.length?`<dl class="facts">${facts.map(item=>`<div><dt>${item[0]}</dt><dd>${item[2]}</dd></div>`).join("")}</dl>`:"";
+      const details=meta.notes.length>1?`<details class="court-details"><summary>查看預約與使用方式</summary><ul>${meta.notes.map(note=>`<li>${safe(note)}</li>`).join("")}</ul>${meta.lineId?`<p><b>驗證碼協助：</b>LINE ${safe(meta.lineId)}</p>`:""}</details>`:`<p class="note">${safe(meta.notes[0]||"")}</p>`;
+      return `<article class="card ${meta.collaboration?"partner-card":""}"><div class="card-image" role="img" aria-label="${safe(x.name)}照片" ${imageStyle(x.imageUrl)}></div><div class="card-body"><div class="tags"><span class="tag">${safe(x.area)}</span><span class="tag">${safe(x.indoor)}</span>${meta.collaboration?'<span class="tag partner-tag">合作場館資訊</span>':""}</div><h2>${safe(x.name)}</h2>${x.address?`<p class="court-address">${safe(x.address)}</p>`:""}${factsHtml}<p>${safe(x.hours)}</p>${details}<div class="court-actions"><a class="text-link" href="${safeUrl(x.mapUrl)}" target="_blank" rel="noopener noreferrer">開啟地圖</a>${meta.bookingUrl?`<a class="button primary" href="${safeUrl(meta.bookingUrl)}" target="_blank" rel="noopener noreferrer">前往會員預約</a>`:""}</div></div></article>`;
+    }).join("");
+    $("#court-empty").hidden=!!list.length
+  }
   function renderEvents(){if(!$("#event-list"))return;$("#event-list").innerHTML=data.events.map(x=>`<article class="event"><div class="event-image" role="img" aria-label="${safe(x.name)}照片" ${imageStyle(x.imageUrl)}></div><div><span class="tag">${safe(x.status)}</span><h2>${safe(x.name)}</h2><p>${fmt(x.date)}｜${safe(x.location)}</p><p class="note">${safe(x.summary)}</p>${x.url?`<a class="text-link" href="${safeUrl(x.url)}" target="_blank" rel="noopener noreferrer">查看主辦單位公告</a>`:""}</div></article>`).join("")}
   function renderGear(){if(!$("#gear-list"))return;$("#gear-list").innerHTML=data.gear.map((x,i)=>`<article class="guide-card"><span class="tag">${String(i+1).padStart(2,"0")}｜${safe(x.type)}</span><h2>${safe(x.title)}</h2><p>${safe(x.audience)}</p><p>${safe(x.points)}</p><p class="note">${safe(x.note)}</p></article>`).join("");const link=$("#store-link");if(link)link.href=safeUrl(data.gear[0]?.storeUrl,"https://hlopb.qdm.tw/")}
   function articleBody(value){
