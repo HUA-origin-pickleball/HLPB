@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://hlpb.com.tw/articles.html</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,5 +55,9 @@
   <url>
     <loc>https://hlpb.com.tw/articles.html?slug=first-pickleball-checklist</loc>
     <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://hlpb.com.tw/articles.html?slug=hualien-pickleball-courts-guide</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
 </urlset>

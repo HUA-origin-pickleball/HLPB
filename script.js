@@ -6,7 +6,7 @@
     courts:[{area:"花蓮市",name:"中山公園網球／匹克球場",indoor:"戶外",courts:3,net:"需自備",lighting:"投幣式照明",fee:"依現場公告",hours:"單數日網球優先、偶數日匹克球優先",note:"共用場地，遇到人多時請互相協調並輪流上場。",mapUrl:"https://www.google.com/maps/search/?api=1&query=中山公園網球場+花蓮",imageUrl:""},{area:"花蓮市美崙",name:"大陳二村匹克球場",indoor:"戶外",courts:3,net:"固定式球網",lighting:"請依現場公告",fee:"依現場公告",hours:"請依現場管理規定",note:"若現場有工程、社區活動或管理公告，請依現場規定辦理。",mapUrl:"https://www.google.com/maps/search/?api=1&query=大陳二村活動中心",imageUrl:""},{"id":"court-003","area":"花蓮市","name":"匹勁｜24h 匹克球球館","address":"花蓮市中央路四段599號","indoor":"24h 預約制","courts":"","net":"","lighting":"","fee":"依預約系統顯示","hours":"24 小時預約制","note":"【合作場館資訊】資料由匹勁企業社主動提供，HLPB 協助整理刊登。｜附淋浴間、洗髮乳、沐浴乳及吹風機。｜註冊時帳號與密碼皆使用行動電話號碼，姓名請填全名；進出門禁使用會員程式。｜預約：登入會員 → 預約查詢 → 點選球場 → 選擇球道 → 立即預約 → 選擇時段 → 付款成功 → 查詢訂單；回首頁至「我的預約單」確認。｜訂單須在 15 分鐘內付款，逾時或超過預約時間將作廢；系統採 24 小時制。｜【預約網址】https://app.hengfu-i.com/?dealerId=00001835&openExternalBrowser=1｜【LINE】@501qnxxb","mapUrl":"https://www.google.com/maps/search/?api=1&query=花蓮市中央路四段599號","imageUrl":"","updatedDate":"2026-09-23"}],
     events:[{status:"已結束",date:"2026-09-19",name:"第一屆花東快速盃匹克球邀請賽",location:"花蓮縣玉里鎮藝文中心",summary:"組別、資格、費用及賽制請以主辦單位最新公告為準。",url:"",imageUrl:""}],
     gear:[{type:"球拍",title:"先從重量與握把開始",audience:"第一次買拍的人",points:"確認整體重量、揮重、握把周長及握把長度，再考慮表面與內芯。",note:"規格是參考，能實際試拍最好。",storeUrl:"https://hlopb.qdm.tw/"}],
-    articles:[{id:"article-001",date:"2026-09-05",category:"新手入門",title:"第一次打匹克球，要準備什麼？",slug:"first-pickleball-checklist",summary:"球鞋、飲水和基本用品先準備好，球拍可以先借用，不用急著買。",content:"第一次打匹克球，先準備止滑且方便移動的運動鞋、飲用水、毛巾與防曬用品。\n\n如果還沒有球拍，可以先詢問球友或體驗活動是否能借用。剛開始先熟悉發球、雙彈規則、非截擊區與基本計分，比急著買齊裝備更重要。",author:"HLPB",seoDescription:"花蓮匹克球新手第一次上場需要準備的用品與基本注意事項。",ctaText:"找花蓮匹克球場",ctaUrl:"courts.html",editorialStatus:"待上線"}]
+    articles:[{id:"article-001",date:"2026-09-05",category:"新手入門",title:"第一次打匹克球，要準備什麼？",slug:"first-pickleball-checklist",summary:"球鞋、飲水和基本用品先準備好，球拍可以先借用，不用急著買。",content:"第一次打匹克球，先準備止滑且方便移動的運動鞋、飲用水、毛巾與防曬用品。\n\n如果還沒有球拍，可以先詢問球友或體驗活動是否能借用。剛開始先熟悉發球、雙彈規則、非截擊區與基本計分，比急著買齊裝備更重要。",author:"HLPB",seoDescription:"花蓮匹克球新手第一次上場需要準備的用品與基本注意事項。",ctaText:"找花蓮匹克球場",ctaUrl:"courts.html",editorialStatus:"待上線"},{"id":"article-002","date":"2026-09-26","category":"找球場","title":"花蓮匹克球場怎麼找？3 處場地設備與使用方式整理","slug":"hualien-pickleball-courts-guide","summary":"整理花蓮中山公園、大陳二村與匹勁 3 處匹克球場的球網、照明、預約方式和出發前提醒。","content":"在花蓮想打匹克球，可以先從中山公園網球／匹克球場、大陳二村匹克球場，以及中央路四段的匹勁球館查起。三處的球網與使用方式不同，出發前先確認，就比較不會白跑一趟。\n\n## 三處場地怎麼選？\n\n### 中山公園網球／匹克球場｜花蓮市\n\n戶外共用場地，本站資料標示有 3 面場地，需自備球網，設有投幣式照明。單數日網球優先、偶數日匹克球優先；人多時請依現場規則協調輪替。\n\n### 大陳二村匹克球場｜花蓮市美崙\n\n戶外場地，本站資料標示有 3 面場地與固定式球網。照明、費用及當天使用方式，請以現場公告為準。\n\n### 匹勁｜24h 匹克球球館｜花蓮市中央路四段 599 號\n\n採 24 小時預約制。場館提供的資料列有淋浴間、洗髮乳、沐浴乳及吹風機；費用以會員預約系統顯示為準。預約後，記得確認付款及「我的預約單」。\n\n## 出門前，先確認這三件事\n\n1. 球網要不要帶？中山公園標示需自備；大陳二村標示為固定式球網。\n2. 要不要先預約？匹勁需透過會員系統預約；戶外場地依現場管理規定使用。\n3. 當天能不能打？戶外場地可能受天候、活動或維護影響，請以現場最新公告為準。\n\n第一次使用匹勁，可依場館提供的流程登入會員、選擇球場與時段、完成付款，再到「我的預約單」確認。場館提醒須在 15 分鐘內付款，選時段時也要留意系統採 24 小時制。這筆資料由匹勁主動提供，HLPB 協助整理刊登；實際規定仍以場館最新資訊為準。\n\n選好場地後，可到[花蓮匹克球揪團頁](groups.html)找球友；各場地的地圖與使用資料則整理在[花蓮匹克球場列表](courts.html)。","author":"HLPB","seoTitle":"花蓮匹克球場怎麼找？中山公園、大陳二村與匹勁場地指南","seoDescription":"整理花蓮中山公園、大陳二村與匹勁 3 處匹克球場的球網、照明、預約方式和出發前提醒。","primaryKeyword":"花蓮匹克球場","secondaryKeywords":"花蓮匹克球, 花蓮匹克球場地, 匹勁","sources":"HLPB 球場資料；匹勁場館提供資訊","lastVerifiedDate":"2026-09-25","ctaText":"查看花蓮匹克球場地圖","ctaUrl":"courts.html","editorialStatus":"已發布"}]
   };
   let data=fallback,slide=0,timer;
   const $=s=>document.querySelector(s);
@@ -51,9 +51,19 @@
   function renderEvents(){if(!$("#event-list"))return;$("#event-list").innerHTML=data.events.map(x=>`<article class="event"><div class="event-image" role="img" aria-label="${safe(x.name)}照片" ${imageStyle(x.imageUrl)}></div><div><span class="tag">${safe(x.status)}</span><h2>${safe(x.name)}</h2><p>${fmt(x.date)}｜${safe(x.location)}</p><p class="note">${safe(x.summary)}</p>${x.url?`<a class="text-link" href="${safeUrl(x.url)}" target="_blank" rel="noopener noreferrer">查看主辦單位公告</a>`:""}</div></article>`).join("")}
   function renderGear(){if(!$("#gear-list"))return;$("#gear-list").innerHTML=data.gear.map((x,i)=>`<article class="guide-card"><span class="tag">${String(i+1).padStart(2,"0")}｜${safe(x.type)}</span><h2>${safe(x.title)}</h2><p>${safe(x.audience)}</p><p>${safe(x.points)}</p><p class="note">${safe(x.note)}</p></article>`).join("");const link=$("#store-link");if(link)link.href=safeUrl(data.gear[0]?.storeUrl,"https://hlopb.qdm.tw/")}
   function articleBody(value){
-    const lines=String(value||"").replace(/\\n/g,"\n").split(/\n/),out=[];let list=[];
-    const flush=()=>{if(list.length){out.push(`<ul>${list.map(item=>`<li>${safe(item)}</li>`).join("")}</ul>`);list=[]}};
-    lines.forEach(line=>{const text=line.trim();if(!text){flush();return}if(/^###\s+/.test(text)){flush();out.push(`<h3>${safe(text.replace(/^###\s+/,""))}</h3>`)}else if(/^##\s+/.test(text)){flush();out.push(`<h2>${safe(text.replace(/^##\s+/,""))}</h2>`)}else if(/^[-*]\s+/.test(text)){list.push(text.replace(/^[-*]\s+/,""))}else{flush();out.push(`<p>${safe(text)}</p>`)}});flush();return out.join("")
+    const lines=String(value||"").replace(/\\n/g,"\n").split(/\n/),out=[];let list=[],kind="";
+    const inline=value=>String(value).split(/(\[[^\]]+\]\([^)]+\))/g).map(part=>{
+      const m=part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if(m)return `<a href="${safe(safeUrl(m[2]))}">${safe(m[1])}</a>`;
+      return safe(part).replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
+    }).join("");
+    const flush=()=>{if(list.length){out.push(`<${kind}>${list.map(item=>`<li>${inline(item)}</li>`).join("")}</${kind}>`);list=[];kind=""}};
+    lines.forEach(line=>{const text=line.trim();if(!text){flush();return}
+      if(/^###\s+/.test(text)){flush();out.push(`<h3>${inline(text.replace(/^###\s+/,""))}</h3>`)}
+      else if(/^##\s+/.test(text)){flush();out.push(`<h2>${inline(text.replace(/^##\s+/,""))}</h2>`)}
+      else if(/^[-*]\s+/.test(text)){if(kind&&kind!=="ul")flush();kind="ul";list.push(text.replace(/^[-*]\s+/,""))}
+      else if(/^\d+\.\s+/.test(text)){if(kind&&kind!=="ol")flush();kind="ol";list.push(text.replace(/^\d+\.\s+/,""))}
+      else{flush();out.push(`<p>${inline(text)}</p>`)}});flush();return out.join("")
   }
   function renderArticles(){
     const list=$("#article-list"),detail=$("#article-detail");if(!list||!detail)return;
