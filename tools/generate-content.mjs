@@ -16,3 +16,16 @@ for(const [type,items] of [['articles',data.articles],['news',data.news]]){
 }
 sitemap=sitemap.replace(/(<loc>https:\/\/hlpb\.com\.tw\/<\/loc>\s*<lastmod>)[^<]+/,'$12026-09-29');
 writeFileSync('sitemap.xml',sitemap);
+
+// Keep the key local listings readable in the source HTML before JavaScript loads.
+const updateSnapshot=(file,start,end,html)=>{
+ const original=readFileSync(file,'utf8');
+ const pattern=new RegExp(`<!-- ${start} -->[\\s\\S]*?<!-- ${end} -->`);
+ if(!pattern.test(original))throw Error(`Missing snapshot markers in ${file}`);
+ writeFileSync(file,original.replace(pattern,`<!-- ${start} -->${html}<!-- ${end} -->`));
+};
+const facts=x=>[['球場',x.courts?`${x.courts} 面`:''],['球網',x.net],['照明',x.lighting],['費用',x.fee]].filter(([,value])=>value).map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('');
+updateSnapshot('courts.html','COURT_STATIC_START','COURT_STATIC_END',data.courts.map(x=>`<article class="card"><div class="card-image" ${x.imageUrl?`style="background-image:url('${esc(x.imageUrl)}')"`:''} role="img" aria-label="${esc(x.name)}場地照片"></div><div class="card-body"><div class="tags"><span class="tag">${esc(x.area)}</span><span class="tag">${esc(x.indoor)}</span></div><h2>${esc(x.name)}</h2>${x.address?`<p class="court-address">${esc(x.address)}</p>`:''}<dl class="facts">${facts(x)}</dl>${x.hours?`<p>${esc(x.hours)}</p>`:''}${x.note?`<p class="note">${esc(x.note.replace(/【合作場館資訊】/g,'').split('｜')[0])}</p>`:''}<a class="text-link" href="${esc(x.mapUrl)}" target="_blank" rel="noopener noreferrer">開啟地圖</a></div></article>`).join(''));
+const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const upcoming=data.events.filter(x=>x.date>=today).sort((a,b)=>a.date.localeCompare(b.date));
+updateSnapshot('events.html','EVENT_STATIC_START','EVENT_STATIC_END',upcoming.map(x=>`<article class="event">${x.imageUrl?`<a class="event-poster" href="${esc(x.imageUrl)}" aria-label="放大檢視${esc(x.name)}海報"><img src="${esc(x.imageUrl)}" alt="${esc(x.name)}活動海報" loading="lazy"></a>`:'<div class="event-image" aria-hidden="true"></div>'}<div><span class="tag">${esc(x.status)}</span><h2>${esc(x.name)}</h2><p><time datetime="${esc(x.date)}">${esc(x.date)}</time>${x.time?` ${esc(x.time)}`:''}｜${esc(x.location)}</p><p class="note">${esc(x.summary)}</p>${x.url?`<a class="text-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.linkText||'查看活動來源')}</a>`:''}</div></article>`).join(''));
