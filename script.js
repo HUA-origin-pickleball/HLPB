@@ -24,6 +24,15 @@
     const keys=new Set(items.map(x=>x.slug||x.id));
     return [...local.filter(x=>!keys.has(x.slug||x.id)),...items].sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
   };
+  function mergeEvents(local,remote){
+    const entries=[...(Array.isArray(remote)?remote:[]),...local];
+    const seen=new Set();
+    return entries.filter(x=>{
+      const key=String(x.date||"").replace(/\D/g,"").slice(0,8)+"|"+String(x.name||"").replace(/[\s　（）()｜]/g,"").toLowerCase();
+      if(seen.has(key))return false;
+      seen.add(key);return true;
+    }).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+  }
   function renderHero(){if(!$("#hero-title"))return;const x=data.slides[slide]||fallback.slides[0];$("#hero-title").innerHTML=safe(x.title).replace(/[，,]/,"，<br>");$("#hero-subtitle").textContent=x.subtitle||"";const label=x.buttonText==="開始探索"?"先找球場":x.buttonText;$("#hero-button").textContent=label||"先找球場";$("#hero-button").href=safeUrl(x.buttonUrl,"courts.html");$("#hero-image").style.backgroundImage=x.imageUrl?`url("${String(x.imageUrl).replace(/["\\]/g,"")}")`:"";$("#hero-image").setAttribute("aria-label",x.alt||x.alternativeText||"花蓮匹克球首頁輪播圖");$(".slide-controls").hidden=data.slides.length<2;$("#slide-count").textContent=`${slide+1} / ${data.slides.length}`}
   function renderNews(){
     const list=$("#news-page-list"),detail=$("#news-detail");if(!list||!detail)return;
@@ -91,8 +100,6 @@
   const menu=$(".menu-button");if(menu)menu.addEventListener("click",()=>{const open=$(".site-header").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
   const prev=$("#slide-prev"),nextButton=$("#slide-next");if(prev)prev.addEventListener("click",()=>next(-1));if(nextButton)nextButton.addEventListener("click",()=>next(1));
   const search=$("#court-search");if(search)search.addEventListener("input",e=>{const q=e.target.value.trim().toLowerCase();renderCourts(q?data.courts.filter(x=>[x.name,x.area,x.indoor,x.net,x.lighting].join(" ").toLowerCase().includes(q)):data.courts)});
-  const footerCredit=document.querySelector("footer small");
-  if(footerCredit&&!footerCredit.textContent.includes("原點匹克球")) footerCredit.textContent+="｜由原點匹克球管理與維護";
   render();
-  if(window.HLPB_DATA_URL)fetch(window.HLPB_DATA_URL).then(r=>{if(!r.ok)throw Error("bad response");return r.json()}).then(v=>{data={...fallback,...v,courts:[...fallback.courts.map(x=>{const y=(Array.isArray(v.courts)?v.courts:[]).find(z=>(x.id&&z.id===x.id)||z.name===x.name);return y?{...y,...x}:x}),...(Array.isArray(v.courts)?v.courts:[]).filter(y=>!fallback.courts.some(x=>(x.id&&x.id===y.id)||x.name===y.name))],news:mergeEntries(fallback.news,v.news),events:mergeEntries(fallback.events,v.events),articles:mergeEntries(fallback.articles,v.articles),gear:[...fallback.gear.map(x=>(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title)||x),...(Array.isArray(v.gear)?v.gear:[]).filter(x=>!fallback.gear.some(y=>y.title===x.title))]};slide=0;render();clearInterval(timer);if(data.slides.length>1)timer=setInterval(()=>next(1),6500)}).catch(()=>console.warn("HLPB 公開資料暫時無法讀取，已顯示內建資料。"));
+  if(window.HLPB_DATA_URL)fetch(window.HLPB_DATA_URL).then(r=>{if(!r.ok)throw Error("bad response");return r.json()}).then(v=>{data={...fallback,...v,courts:[...fallback.courts.map(x=>{const y=(Array.isArray(v.courts)?v.courts:[]).find(z=>(x.id&&z.id===x.id)||z.name===x.name);return y?{...y,...x}:x}),...(Array.isArray(v.courts)?v.courts:[]).filter(y=>!fallback.courts.some(x=>(x.id&&x.id===y.id)||x.name===y.name))],news:mergeEntries(fallback.news,v.news),events:mergeEvents(fallback.events,v.events),articles:mergeEntries(fallback.articles,v.articles),gear:[...fallback.gear.map(x=>(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title)||x),...(Array.isArray(v.gear)?v.gear:[]).filter(x=>!fallback.gear.some(y=>y.title===x.title))]};slide=0;render();clearInterval(timer);if(data.slides.length>1)timer=setInterval(()=>next(1),6500)}).catch(()=>console.warn("HLPB 公開資料暫時無法讀取，已顯示內建資料。"));
 })();
