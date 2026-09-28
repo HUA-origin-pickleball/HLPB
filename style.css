@@ -19,6 +19,11 @@
 .article-card[data-category="場地資訊"] .editorial-cover{background:linear-gradient(135deg,#bddbd4,#4f9188)}
 .article-card[data-category="網站公告"] .editorial-cover{background:linear-gradient(135deg,#cbd9e8,#6f91b5)}
 .article-card[data-category="活動資訊"] .news-tag{color:#9b6500}.article-card[data-category="比賽資訊"] .news-tag{color:#a43f2b}.article-card[data-category="場地資訊"] .news-tag{color:#28736a}.article-card[data-category="網站公告"] .news-tag{color:#436d99}
+.article-card[data-article-category="新手規則"] .editorial-cover{background:linear-gradient(135deg,#d5e5f2,#77a5c7)}
+.article-card[data-article-category="場地知識"] .editorial-cover{background:linear-gradient(135deg,#c4e1d4,#65a184)}
+.article-card[data-article-category="球具入門"] .editorial-cover{background:linear-gradient(135deg,#f5deb0,#d6a34f)}
+.article-card[data-article-category="找球友"] .editorial-cover{background:linear-gradient(135deg,#e5cce8,#a97db1)}
+.article-card[data-article-category="新手規則"] .article-tag{color:#477da4}.article-card[data-article-category="場地知識"] .article-tag{color:#34775a}.article-card[data-article-category="球具入門"] .article-tag{color:#94651c}.article-card[data-article-category="找球友"] .article-tag{color:#80508a}
 .news-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}.news-filters button{min-height:40px;padding:7px 15px;border:1px solid var(--navy);background:transparent;color:var(--navy);cursor:pointer;font-weight:800}.news-filters button:hover,.news-filters button.active{background:var(--navy);color:var(--paper)}
 .event-source{font-size:12px;color:var(--muted);margin:16px 0 0}
 @media(max-width:640px){.article-card>.editorial-cover{min-height:180px}.editorial-cover{min-height:190px}.editorial-cover .cover-date{font-size:58px}.cover-title{font-size:18px}.news-filters{display:grid;grid-template-columns:repeat(2,1fr)}.news-filters button:first-child{grid-column:1/-1}}
