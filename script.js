@@ -15,10 +15,15 @@
   const fmt=v=>{if(!v)return "";const d=new Date(v);return Number.isNaN(d.valueOf())?safe(v):d.toLocaleDateString("zh-TW")};
   const imageStyle=v=>v?`style="background-image:url('${safeUrl(v).replace(/'/g,"%27")}')"`:"";
   function visualCard(x,type="article"){
-    const date=String(x.date||"").slice(5).replace("-",".");
     const label=type==="event"?"活動資訊":safe(x.category||"文章");
-    return `<div class="editorial-cover ${type==="event"?"editorial-cover-event":""}" aria-hidden="true"><span class="cover-kicker">HLPB / ${label}</span><strong>${safe(date||"HLPB")}</strong><span class="cover-caption">${type==="event"?"花蓮匹克球活動":"花蓮匹克球閱讀"}</span></div>`;
+    const activityMatch=String(x.title||"").match(/(\d{1,2})\s*[/.月]\s*(\d{1,2})/);
+    const isActivity=type==="event"||label==="活動資訊"||label==="比賽資訊";
+    const activityDate=x.eventDate?String(x.eventDate).slice(5).replace("-","."):activityMatch?`${activityMatch[1].padStart(2,"0")}.${activityMatch[2].padStart(2,"0")}`:"";
+    const coverTitle=x.coverTitle||(type==="event"?x.name:x.title)||"HLPB 最新消息";
+    const coverSummary=x.coverSummary||(type==="event"?[x.time,x.location].filter(Boolean).join("｜"):x.summary)||"";
+    return `<div class="editorial-cover category-${encodeURIComponent(label)} ${isActivity?"editorial-cover-event":""}" aria-hidden="true"><span class="cover-kicker">${label}</span>${activityDate?`<strong class="cover-date">${safe(activityDate)}</strong>`:""}<span class="cover-title">${safe(coverTitle)}</span>${coverSummary?`<span class="cover-summary">${safe(coverSummary)}</span>`:""}</div>`;
   }
+  let newsFilter="全部";
   const mergeEntries=(local,remote)=>{
     const items=Array.isArray(remote)?remote:[];
     const keys=new Set(items.map(x=>x.slug||x.id));
@@ -37,7 +42,7 @@
   function renderNews(){
     const list=$("#news-page-list"),detail=$("#news-detail");if(!list||!detail)return;
     const slug=new URLSearchParams(location.search).get("slug");
-    if(!slug){detail.hidden=true;list.hidden=false;list.innerHTML=(data.news||[]).map(x=>`<article class="guide-card article-card">${x.imageUrl?`<img src="${safeUrl(x.imageUrl)}" alt="${safe(x.coverImageAlt||x.title)}" loading="lazy">`:visualCard(x)}<div><span class="tag">${safe(x.category||"最新消息")}</span><time>${fmt(x.date)}</time><h2>${safe(x.title)}</h2><p>${safe(x.summary)}</p><a class="text-link" href="news.html?slug=${encodeURIComponent(x.slug||x.id)}">閱讀消息</a></div></article>`).join("")||`<p class="empty">目前尚無最新消息。</p>`;return}
+    if(!slug){detail.hidden=true;list.hidden=false;const items=(data.news||[]).filter(x=>newsFilter==="全部"||(x.category||"網站公告")===newsFilter);document.querySelectorAll("[data-news-filter]").forEach(button=>button.classList.toggle("active",button.dataset.newsFilter===newsFilter));list.innerHTML=items.map(x=>{const category=x.category||"網站公告";const activityMatch=String(x.title||"").match(/(\d{1,2})\s*[/.月]\s*(\d{1,2})/);const eventDate=x.eventDate||(activityMatch?`2026-${activityMatch[1].padStart(2,"0")}-${activityMatch[2].padStart(2,"0")}`:"");return `<article class="guide-card article-card" data-category="${safe(category)}">${x.imageUrl?`<img src="${safeUrl(x.imageUrl)}" alt="${safe(x.coverImageAlt||x.title)}" loading="lazy">`:visualCard(x)}<div><span class="tag news-tag">${safe(category)}</span><time>${eventDate?"活動日期：":"更新："}${fmt(eventDate||x.updatedDate||x.date)}</time><h2>${safe(x.title)}</h2><p>${safe(x.summary)}</p><a class="text-link" href="news.html?slug=${encodeURIComponent(x.slug||x.id)}">查看完整資訊</a></div></article>`}).join("")||`<p class="empty">這個分類目前還沒有消息。</p>`;return}
     const x=(data.news||[]).find(item=>(item.slug||item.id)===slug);list.hidden=true;detail.hidden=false;
     if(!x){detail.innerHTML=`<h2>找不到這則消息</h2><p>消息可能尚未公開或網址已更新。</p><a class="text-link" href="news.html">返回最新消息</a>`;return}
     document.title=(x.seoTitle||x.title)+"｜花蓮匹克球資訊站";const meta=document.querySelector('meta[name="description"]');if(meta)meta.content=x.seoDescription||x.summary||"";
@@ -100,6 +105,7 @@
   const menu=$(".menu-button");if(menu)menu.addEventListener("click",()=>{const open=$(".site-header").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
   const prev=$("#slide-prev"),nextButton=$("#slide-next");if(prev)prev.addEventListener("click",()=>next(-1));if(nextButton)nextButton.addEventListener("click",()=>next(1));
   const search=$("#court-search");if(search)search.addEventListener("input",e=>{const q=e.target.value.trim().toLowerCase();renderCourts(q?data.courts.filter(x=>[x.name,x.area,x.indoor,x.net,x.lighting].join(" ").toLowerCase().includes(q)):data.courts)});
+  const newsFilters=$("#news-filters");if(newsFilters)newsFilters.addEventListener("click",e=>{const button=e.target.closest("[data-news-filter]");if(!button)return;newsFilter=button.dataset.newsFilter;renderNews()});
   render();
   if(window.HLPB_DATA_URL)fetch(window.HLPB_DATA_URL).then(r=>{if(!r.ok)throw Error("bad response");return r.json()}).then(v=>{data={...fallback,...v,courts:[...fallback.courts.map(x=>{const y=(Array.isArray(v.courts)?v.courts:[]).find(z=>(x.id&&z.id===x.id)||z.name===x.name);return y?{...y,...x}:x}),...(Array.isArray(v.courts)?v.courts:[]).filter(y=>!fallback.courts.some(x=>(x.id&&x.id===y.id)||x.name===y.name))],news:mergeEntries(fallback.news,v.news),events:mergeEvents(fallback.events,v.events),articles:mergeEntries(fallback.articles,v.articles),gear:[...fallback.gear.map(x=>(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title)||x),...(Array.isArray(v.gear)?v.gear:[]).filter(x=>!fallback.gear.some(y=>y.title===x.title))]};slide=0;render();clearInterval(timer);if(data.slides.length>1)timer=setInterval(()=>next(1),6500)}).catch(()=>console.warn("HLPB 公開資料暫時無法讀取，已顯示內建資料。"));
 })();
