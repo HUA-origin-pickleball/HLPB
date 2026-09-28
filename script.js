@@ -11,7 +11,7 @@
   let data=fallback,slide=0,timer;
   const $=s=>document.querySelector(s);
   const safe=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
-  const safeUrl=(v,f="#")=>{const raw=String(v||"").trim();if(!raw)return f;if(raw.startsWith("#")||/^[a-z0-9_\/-]+\.html(?:[?#].*)?$/i.test(raw))return raw;if(/^\/[a-z0-9_\/-]*$/i.test(raw))return raw==="/courts"?"courts.html":raw==="/about"?"articles.html":raw;try{const u=new URL(raw,location.href);return ["http:","https:"].includes(u.protocol)?u.href:f}catch{return f}};
+  const safeUrl=(v,f="#")=>{const raw=String(v||"").trim();if(!raw||/["'<>`\\\s]/.test(raw))return f;if(/^#[a-z0-9_-]+$/i.test(raw)||/^[a-z0-9_\/-]+\.html(?:[?#][a-z0-9_=&%./-]*)?$/i.test(raw))return raw;if(/^\/[a-z0-9_\/-]*$/i.test(raw))return raw==="/courts"?"courts.html":raw==="/about"?"articles.html":raw;try{const u=new URL(raw,location.href);return ["http:","https:"].includes(u.protocol)?u.href:f}catch{return f}};
   const fmt=v=>{if(!v)return "";const d=new Date(v);return Number.isNaN(d.valueOf())?safe(v):d.toLocaleDateString("zh-TW")};
   const imageStyle=v=>v?`style="background-image:url('${safeUrl(v).replace(/'/g,"%27")}')"`:"";
   function visualCard(x,type="article"){
@@ -41,7 +41,7 @@
       seen.add(key);return true;
     }).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
   }
-  function renderHero(){if(!$("#hero-title"))return;const x=data.slides[slide]||fallback.slides[0];$("#hero-title").innerHTML=safe(x.title).replace(/[，,]/,"，<br>");$("#hero-subtitle").textContent=x.subtitle||"";const label=x.buttonText==="開始探索"?"先找球場":x.buttonText;$("#hero-button").textContent=label||"先找球場";$("#hero-button").href=safeUrl(x.buttonUrl,"courts.html");$("#hero-image").style.backgroundImage=x.imageUrl?`url("${String(x.imageUrl).replace(/["\\]/g,"")}")`:"";$("#hero-image").setAttribute("aria-label",x.alt||x.alternativeText||"花蓮匹克球首頁輪播圖");$(".slide-controls").hidden=data.slides.length<2;$("#slide-count").textContent=`${slide+1} / ${data.slides.length}`}
+  function renderHero(){if(!$("#hero-title"))return;const x=data.slides[slide]||fallback.slides[0];$("#hero-title").innerHTML=safe(x.title).replace(/[，,]/,"，<br>");$("#hero-subtitle").textContent=x.subtitle||"";const label=x.buttonText==="開始探索"?"先找球場":x.buttonText;$("#hero-button").textContent=label||"先找球場";$("#hero-button").href=safeUrl(x.buttonUrl,"courts.html");const heroImage=safeUrl(x.imageUrl,"");$("#hero-image").style.backgroundImage=heroImage?`url("${heroImage}")`:"";$("#hero-image").setAttribute("aria-label",x.alt||x.alternativeText||"花蓮匹克球首頁輪播圖");$(".slide-controls").hidden=data.slides.length<2;$("#slide-count").textContent=`${slide+1} / ${data.slides.length}`}
   function renderNews(){
     const list=$("#news-page-list"),detail=$("#news-detail");if(!list||!detail)return;
     const slug=new URLSearchParams(location.search).get("slug");
