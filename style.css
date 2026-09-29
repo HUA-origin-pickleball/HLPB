@@ -108,3 +108,38 @@
 .action-card:nth-child(2) p,.action-card:nth-child(2) .text-link{color:var(--navy)}
 @media(max-width:900px){.home-contact,.contact-callout{align-items:start;flex-direction:column}.group-info{grid-template-columns:1fr}}
 @media(max-width:640px){.home-contact{gap:22px}.home-contact .button,.contact-callout .button{align-self:start}.group-info{gap:22px;margin-top:28px}.contact-callout{padding:22px;margin-top:30px}.group-heading{display:block}.group-heading p{margin-top:10px}}
+
+/* Separate listing cards and keep venue photography in its original proportions. */
+[hidden]{display:none!important}
+.card-image{background-color:#dce5df;background-size:contain;background-position:center;background-repeat:no-repeat}
+.event-list,.article-list{gap:20px;border-top:0}
+.event-list>.event,.past-events .event{border:1px solid var(--navy)}
+.past-events{border:0;margin-top:6px}
+.past-events summary{border:1px solid var(--navy)}
+.past-events>div{display:grid;gap:20px;padding-top:20px}
+.article-list>.article-card{border:1px solid var(--navy)}
+.article-card>img{object-fit:contain;background:#e9e2cf}
+.listing-search{max-width:680px;margin-bottom:20px}
+
+/* A short, scannable first-visit guide. */
+.beginner-guide{max-width:1160px}
+.beginner-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.beginner-steps>div{border:1px solid var(--navy);padding:22px;background:#e9e2cf}
+.beginner-steps span{font-weight:800;color:var(--teal)}
+.beginner-steps h2{font-family:var(--display);font-size:26px;margin:12px 0 6px}
+.beginner-steps p{margin:0;line-height:1.65}
+.beginner-section{margin-top:48px}
+.beginner-section>h2{font-family:var(--display);font-size:clamp(27px,3vw,38px);margin:0 0 18px}
+.beginner-rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.beginner-rule-grid>div{border:1px solid var(--navy);padding:20px}
+.beginner-rule-grid h3{font-family:var(--display);font-size:22px;margin:0 0 8px}
+.beginner-rule-grid p{margin:0 0 10px}
+.beginner-rule-grid a,.beginner-faq a,.video-source a{text-decoration:underline;text-underline-offset:3px;color:var(--teal);font-weight:700}
+.beginner-faq{border-top:1px solid var(--navy)}
+.beginner-faq details{border-bottom:1px solid var(--navy);padding:15px 4px}
+.beginner-faq summary{cursor:pointer;font-weight:800}
+.beginner-faq p{margin:10px 0 2px;max-width:75ch}
+.video-frame{aspect-ratio:16/9;max-width:780px;background:var(--navy)}
+.video-frame iframe{display:block;width:100%;height:100%;border:0}
+.video-source{font-size:13px;color:var(--muted)}
+@media(max-width:700px){.beginner-steps,.beginner-rule-grid{grid-template-columns:1fr}.beginner-section{margin-top:36px}.event-list,.article-list{gap:16px}.card-image{min-height:220px}.article-list>.article-card{padding:20px}}
