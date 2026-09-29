@@ -18,7 +18,7 @@
     const label=type==="event"?"活動資訊":safe(x.category||"文章");
     const activityMatch=String(x.title||"").match(/(\d{1,2})\s*[/.月]\s*(\d{1,2})/);
     const isActivity=type==="event"||label==="活動資訊"||label==="比賽資訊";
-    const activityDate=x.eventDate?String(x.eventDate).slice(5).replace("-","."):activityMatch?`${activityMatch[1].padStart(2,"0")}.${activityMatch[2].padStart(2,"0")}`:"";
+    const activityDate=(type==="event"?x.date:x.eventDate)?String(type==="event"?x.date:x.eventDate).slice(5).replace("-","."):activityMatch?`${activityMatch[1].padStart(2,"0")}.${activityMatch[2].padStart(2,"0")}`:"";
     const coverTitle=x.coverTitle||(type==="event"?x.name:x.title)||"HLPB 最新消息";
     const coverSummary=x.coverSummary||(type==="event"?[x.time,x.location].filter(Boolean).join("｜"):x.summary)||"";
     return `<div class="editorial-cover category-${encodeURIComponent(label)} ${isActivity?"editorial-cover-event":""}" aria-hidden="true"><span class="cover-kicker">${label}</span>${activityDate?`<strong class="cover-date">${safe(activityDate)}</strong>`:""}<span class="cover-title">${safe(coverTitle)}</span>${coverSummary?`<span class="cover-summary">${safe(coverSummary)}</span>`:""}</div>`;
