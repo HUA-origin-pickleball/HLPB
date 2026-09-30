@@ -304,3 +304,6 @@
  background:var(--card-surface);box-shadow:var(--card-shadow)
 }
 @media(max-width:640px){.quick-grid,.vision-grid,.action-grid{gap:16px}}
+
+/* Quiet per-page view count, shown only after the API confirms a real number. */
+.page-view-count{display:block;width:100%;margin-top:1rem;font-size:.8rem;color:var(--navy);opacity:.72;text-align:right}
