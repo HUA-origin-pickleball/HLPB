@@ -1,5 +1,8 @@
 // HLPB 公開資料 API。這份程式綁定「HLPB 網站資料庫」試算表。
-function doGet() {
+function doGet(e) {
+  if (e && e.parameter && e.parameter.action === 'view') {
+    return pageViewOutput(e.parameter.page);
+  }
   const cache = CacheService.getScriptCache();
   const cached = cache.get('hlpb-public-data-v3');
   if (cached) return jsonOutput(cached);
@@ -36,4 +39,27 @@ function doGet() {
 
 function jsonOutput(json) {
   return ContentService.createTextOutput(json).setMimeType(ContentService.MimeType.JSON);
+}
+
+// A page load is a view (including a refresh), not a unique visitor.
+// Keep counters separate from the cached editorial response.
+function pageViewOutput(page) {
+  const path = String(page || '');
+  if (!/^(?:index|news|courts|groups|events|beginners|gear|articles|articles\/[a-z0-9-]+|news\/[a-z0-9-]+|events\/[a-z0-9-]+)$/.test(path)) {
+    return jsonOutput(JSON.stringify({error:'invalid page'}));
+  }
+  const lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(10000);
+    const properties = PropertiesService.getScriptProperties();
+    const key = 'views:' + path;
+    const previous = Number(properties.getProperty(key) || 0);
+    const views = (Number.isSafeInteger(previous) && previous >= 0 ? previous : 0) + 1;
+    properties.setProperty(key, String(views));
+    return jsonOutput(JSON.stringify({page:path,views:views}));
+  } catch (error) {
+    return jsonOutput(JSON.stringify({error:'counter unavailable'}));
+  } finally {
+    if (lock.hasLock()) lock.releaseLock();
+  }
 }
