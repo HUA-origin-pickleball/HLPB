@@ -7,7 +7,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const link=u=>{if(/^(https?:\/\/|(?:\.\.\/)?[a-z-]+\.html(?:\?slug=[a-z0-9-]+)?$)/i.test(u)){if(u.startsWith('http'))return u;const m=u.match(/^(?:\.\.\/)?(articles|news)\.html\?slug=([a-z0-9-]+)$/);return m?`../${m[1]}/${m[2]}.html`:`../${u.replace(/^\.\.\//,'')}`;}return '#'};
 const inline=s=>String(s).split(/(\[[^\]]+\]\([^)]+\))/g).map(part=>{const match=part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);if(match)return `<a href="${esc(link(match[2]))}"${match[2].startsWith('http')?' target="_blank" rel="noopener noreferrer"':''}>${esc(match[1])}</a>`;return esc(part).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')}).join('');
 function body(s){let out='',list=[];const flush=()=>{if(list.length){out+=`<ul>${list.map(x=>`<li>${inline(x)}</li>`).join('')}</ul>`;list=[]}};for(const raw of String(s||'').split('\n')){const t=raw.trim();if(!t){flush();continue}if(t.startsWith('## ')){flush();out+=`<h2>${inline(t.slice(3))}</h2>`}else if(t.startsWith('### ')){flush();out+=`<h3>${inline(t.slice(4))}</h3>`}else if(t.startsWith('- ')){list.push(t.slice(2))}else{flush();out+=`<p>${inline(t)}</p>`}}flush();return out}
-const nav=[['首頁','index.html'],['最新消息','news.html'],['找球場','courts.html'],['揪打球','groups.html'],['想參賽','events.html'],['新手區','beginners.html'],['買球具','gear.html'],['看文章','articles.html']];
+const nav=[['首頁','index.html'],['最新消息','news.html'],['找球場','courts.html'],['揪打球','groups.html'],['想參賽','events.html'],['看文章','articles.html'],['買球具','gear.html'],['新手區','beginners.html']];
 let sitemap=readFileSync('sitemap.xml','utf8');
 for(const [type,items] of [['articles',data.articles],['news',data.news]]){
  mkdirSync(type,{recursive:true});
