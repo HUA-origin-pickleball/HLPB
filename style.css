@@ -237,3 +237,31 @@
   .article-list>.article-card>div:last-child{padding:17px 18px}
   .article-list>.article-card p{margin:7px 0}
 }
+
+/* Narrow phone layouts: keep controls reachable and the listings easy to scan. */
+@media(max-width:640px){
+  .site-header .brand{min-width:0;align-items:center}
+  .site-header .brand b{min-width:0;font-size:13px;line-height:1.25}
+  .site-header .brand img{width:54px;flex:none}
+  .menu-button{flex:none}
+  .page-title h1,.section-heading h2,.quick-grid h3,.card-body h2,.event h2,.guide-card h2{overflow-wrap:anywhere}
+  .news-filters button,.article-filters button,.court-filters button{min-height:44px}
+  .search input{min-width:0}
+  .court-grid>.card,.event-list>.event,.article-list>.article-card{min-width:0;overflow:hidden}
+  .court-grid>.card .card-image{height:auto;aspect-ratio:4/3;min-height:0;background-size:contain}
+  .article-list>.article-card>.editorial-cover{min-height:132px}
+  .article-list>.article-card>div:last-child{padding:15px 17px}
+  .article-list>.article-card p{font-size:14px;line-height:1.55}
+  .event-list>.event>div:last-child{padding:18px}
+  .event .editorial-cover .cover-title{font-size:21px;overflow-wrap:anywhere}
+  .event .editorial-cover{min-height:150px}
+  .site-footer .footer-nav a,.court-details,.prose{overflow-wrap:anywhere}
+}
+@media(max-width:360px){
+  .site-header{padding-inline:12px}
+  .site-header .brand{gap:6px}
+  .site-header .brand b{font-size:12px}
+  .site-header .brand img{width:48px}
+  .hero-actions .button{width:100%}
+  .article-list>.article-card>.editorial-cover .cover-title{font-size:18px}
+}
