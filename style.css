@@ -293,3 +293,14 @@
  .beginner-steps>div,.beginner-rule-grid>div,.vision-grid>div,.action-grid>.action-card,
  .group-entry,.gear-list>.guide-card{padding:20px}
 }
+
+/* Cards use the same paper as the reference search field, with an offset sea-blue shadow. */
+:root{--card-surface:var(--paper);--card-shadow:6px 6px 0 var(--sea)}
+.quick-grid,.vision-grid,.action-grid{gap:18px;border:0}
+.quick-grid>a,.vision-grid>div,.action-grid>.action-card{border:1px solid var(--navy)}
+.quick-grid>a,.court-grid>.card,.event-list>.event,.past-events .event,
+.article-list>.article-card,.gear-list>.guide-card,.beginner-steps>div,
+.beginner-rule-grid>div,.group-entry,.action-grid>.action-card,.vision-grid>div{
+ background:var(--card-surface);box-shadow:var(--card-shadow)
+}
+@media(max-width:640px){.quick-grid,.vision-grid,.action-grid{gap:16px}}
