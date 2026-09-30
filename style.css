@@ -268,3 +268,28 @@
 
 /* The seventh directory entry spans the row on larger screens. */
 @media(min-width:641px){.quick-grid>a:last-child:nth-child(odd){grid-column:1/-1;min-height:150px;background:#eee6d7}}
+
+/* Shared card system: one distinct surface, consistent spacing and type. */
+:root{--card-surface:#e3ebe6;--card-title:clamp(22px,2.1vw,27px);--card-copy:15px}
+.quick-grid>a,.court-grid>.card,.event-list>.event,.past-events .event,
+.article-list>.article-card,.gear-list>.guide-card,.beginner-steps>div,
+.beginner-rule-grid>div,.group-entry,.action-grid>.action-card,.vision-grid>div,
+.vision-grid>div:nth-child(2),.action-grid>.action-card:nth-child(2),
+.article-list>.article-card:nth-child(even),.gear-list>.guide-card:nth-child(even),
+.quick-grid>a:last-child:nth-child(odd){background:var(--card-surface)}
+:is(.quick-grid h3,.vision-grid h3,.beginner-steps h2,.beginner-rule-grid h3,
+.action-card h2,.guide-card h2,.group-entry h3,.card-body h2,.event h2){font-size:var(--card-title);line-height:1.32}
+:is(.quick-grid p,.vision-grid p,.beginner-steps p,.beginner-rule-grid p,
+.action-card p,.guide-card p,.group-entry p,.card-body p,.event p){font-size:var(--card-copy);line-height:1.6}
+.beginner-steps>div,.beginner-rule-grid>div,.vision-grid>div,.action-grid>.action-card,
+.group-entry,.gear-list>.guide-card{padding:24px}
+.quick-grid>a:hover,.quick-grid>a:last-child:nth-child(odd):hover,
+.quick-grid>a:focus-visible,.quick-grid>a:last-child:nth-child(odd):focus-visible{background:var(--teal);color:var(--paper)}
+.quick-grid>a:hover p,.quick-grid>a:focus-visible p{color:#eef5f0}
+.quick-grid>a:hover svg,.quick-grid>a:focus-visible svg,
+.quick-grid>a:hover:after,.quick-grid>a:focus-visible:after{color:var(--yellow)}
+@media(max-width:640px){
+ :root{--card-title:22px;--card-copy:14px}
+ .beginner-steps>div,.beginner-rule-grid>div,.vision-grid>div,.action-grid>.action-card,
+ .group-entry,.gear-list>.guide-card{padding:20px}
+}
