@@ -304,3 +304,13 @@
  background:var(--card-surface);box-shadow:var(--card-shadow)
 }
 @media(max-width:640px){.quick-grid,.vision-grid,.action-grid{gap:16px}}
+
+/* Skill guide: compact level cards with the same paper and offset shadow as the site. */
+.skill-level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;list-style:none!important;margin:1.5rem 0 2.5rem!important;padding:0!important}
+.skill-level-grid>.skill-card{margin:0;padding:1.15rem 1.3rem;background:var(--paper);border:1px solid var(--navy);box-shadow:6px 6px 0 var(--sea);border-radius:4px}
+.skill-card-top{display:flex;align-items:baseline;gap:.8rem;border-bottom:1px solid rgba(20,47,90,.22);padding-bottom:.55rem;margin-bottom:.7rem}
+.skill-card-top strong{font-size:2rem;line-height:1;color:var(--navy)}
+.skill-card-top h3{font-size:1.05rem;margin:0!important}
+.skill-card ul{padding-left:1.2rem;margin:0!important;display:grid;gap:.45rem}
+.skill-card li{margin:0;line-height:1.6}
+@media(max-width:680px){.skill-level-grid{grid-template-columns:1fr;gap:16px}.skill-level-grid>.skill-card{padding:1rem}.skill-card-top strong{font-size:1.75rem}}
