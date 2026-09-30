@@ -171,3 +171,27 @@
 @media(max-width:700px){.group-directory{margin-top:40px}.group-entry{display:block;padding:20px}.group-entry-actions{justify-content:flex-start;margin-top:18px}.group-entry-actions .button{font-size:14px}}
 
 .event-detail-link{margin:0 0 8px}.event-detail-poster{display:block;max-width:450px;margin:20px 0 32px;color:var(--teal);font-weight:800}.event-detail-poster img{display:block;width:100%;height:auto;border:1px solid var(--navy)}.event-detail-poster span{display:inline-block;margin-top:7px;border-bottom:2px solid currentColor}
+
+/* Give information cards a consistent surface against the warm page background. */
+.quick-grid a,.court-grid>.card,.event-list>.event,.past-events .event,
+.article-list>.article-card,.gear-list>.guide-card,.beginner-rule-grid>div{
+  background:#fffdf9;
+}
+.quick-grid a:hover{background:var(--teal)}
+.court-grid{gap:18px;border-top:0}
+.court-grid>.card{border:1px solid var(--navy)}
+.event-list,.article-list,.gear-list{gap:18px;border-top:0}
+.event-list>.event,.article-list>.article-card,.gear-list>.guide-card{
+  border:1px solid var(--navy);
+}
+.article-list>.article-card:nth-child(even),.gear-list>.guide-card:nth-child(even){background:#fffdf9}
+.article-list>.article-card>div:last-child{align-self:center;min-width:0}
+.article-list>.article-card p{max-width:64ch;margin:10px 0 12px;color:#46545a}
+.article-list>.article-card h2{margin:10px 0;line-height:1.3}
+.article-list .editorial-cover{border-right:1px solid var(--navy)}
+@media(max-width:640px){
+  .court-grid,.event-list,.article-list,.gear-list{gap:14px}
+  .article-list .editorial-cover{border-right:0;border-bottom:1px solid var(--navy)}
+  .article-list>.article-card{padding:0}
+  .article-list>.article-card>div:last-child{padding:20px}
+}
