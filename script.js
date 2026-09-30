@@ -119,3 +119,25 @@
   render();
   if(window.HLPB_DATA_URL)fetch(window.HLPB_DATA_URL).then(r=>{if(!r.ok)throw Error("bad response");return r.json()}).then(v=>{data={...fallback,...v,courts:[...fallback.courts.map(x=>{const y=(Array.isArray(v.courts)?v.courts:[]).find(z=>(x.id&&z.id===x.id)||z.name===x.name);return y?{...y,...x}:x}),...(Array.isArray(v.courts)?v.courts:[]).filter(y=>!fallback.courts.some(x=>(x.id&&x.id===y.id)||x.name===y.name))],news:mergeEntries(fallback.news,v.news).map(x=>{const local=fallback.news.find(y=>y.slug===x.slug);return local?{...x,summary:local.summary}:x}),events:mergeEvents(fallback.events,v.events),groups:fallback.groups,articles:mergeEntries(fallback.articles,v.articles).map(x=>x.slug==="hualien-pickleball-courts-guide"?fallback.articles.find(y=>y.slug===x.slug):x),gear:[...fallback.gear.map(x=>(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title)||x),...(Array.isArray(v.gear)?v.gear:[]).filter(x=>x.title!=="鞋子和基本用品也要準備"&&!fallback.gear.some(y=>y.title===x.title))]};slide=0;render();clearInterval(timer);if(data.slides.length>1)timer=setInterval(()=>next(1),6500)}).catch(()=>console.warn("HLPB 公開資料暫時無法讀取，已顯示內建資料。"));
 })();
+// Public page-load counter. It shows nothing until the Apps Script endpoint is updated.
+(() => {
+  const endpoint = 'https://script.google.com/macros/s/AKfycbwBsqmqjOSJg4nJQt6bZXz35FjpUrivES_ouDlFX5HvXjVsssaUWzrA0YL2JhP8W4Gv/exec';
+  const path = location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '') || 'index';
+  if (!/^(?:index|news|courts|groups|events|beginners|gear|articles|(?:articles|news|events)\/[a-z0-9-]+)$/.test(path)) return;
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+  const counter = document.createElement('small');
+  counter.className = 'page-view-count';
+  counter.setAttribute('aria-live', 'off');
+  const url = new URL(endpoint);
+  url.searchParams.set('action', 'view');
+  url.searchParams.set('page', path);
+  fetch(url, {cache:'no-store'})
+    .then(response => { if (!response.ok) throw Error('Counter unavailable'); return response.json(); })
+    .then(result => {
+      if (result.page !== path || !Number.isSafeInteger(result.views) || result.views < 1) return;
+      counter.textContent = `本頁瀏覽 ${result.views.toLocaleString('zh-TW')} 次`;
+      footer.append(counter);
+    })
+    .catch(() => {});
+})();
