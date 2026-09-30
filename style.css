@@ -195,3 +195,21 @@
   .article-list>.article-card{padding:0}
   .article-list>.article-card>div:last-child{padding:20px}
 }
+
+/* Footer directory: clear navigation, independent organizations, and site responsibility. */
+.site-footer{display:block;padding:0;background:var(--navy);color:#eef4ef;font-size:14px}
+.site-footer .footer-main{max-width:1380px;margin:auto;padding:58px clamp(24px,6vw,82px) 48px;display:grid;grid-template-columns:minmax(260px,1.6fr) minmax(130px,1fr) minmax(200px,1.3fr) minmax(150px,1fr);gap:clamp(24px,3vw,50px)}
+.site-footer .brand{width:max-content;max-width:100%;margin-bottom:22px;color:#fff}
+.site-footer .brand img{width:58px}
+.site-footer .footer-about p{margin:0 0 14px;line-height:1.75;color:#cfdbd7}
+.site-footer .footer-inline-link{color:#fff;border-bottom:1px solid var(--yellow);font-weight:700}
+.site-footer .footer-nav{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
+.site-footer .footer-nav h2{margin:0 0 8px;color:var(--yellow);font:800 17px/1.35 var(--display)}
+.site-footer .footer-nav a{color:#e2ece8;line-height:1.45;text-decoration:none;text-underline-offset:4px}
+.site-footer .footer-nav a:hover,.site-footer .footer-nav a:focus-visible,.site-footer .footer-inline-link:hover{text-decoration:underline;color:#fff}
+.site-footer .footer-hint{font-size:12px;line-height:1.55;color:#a8bdba;margin:8px 0 0}
+.site-footer .footer-bottom{max-width:1380px;margin:auto;padding:22px clamp(24px,6vw,82px) 28px;border-top:1px solid #60717b;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;text-align:left}
+.site-footer .footer-bottom p{max-width:860px;margin:0;color:#b9cbc7;font-size:12px;line-height:1.7}
+.site-footer .footer-bottom small{white-space:nowrap;color:#b9cbc7;font-size:12px}
+@media(max-width:980px){.site-footer .footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.site-footer .footer-main{grid-template-columns:1fr;padding-top:42px;padding-bottom:36px;gap:28px}.site-footer .footer-nav{gap:8px}.site-footer .footer-bottom{display:block}.site-footer .footer-bottom small{display:block;margin-top:14px}}
