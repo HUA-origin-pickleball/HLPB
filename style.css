@@ -426,3 +426,6 @@
  .hero-copy{padding:40px 20px}
  .hero-image{height:148px}
 }
+
+/* Final alignment check: text blocks occupy the complete card width. */
+.article-list>.article-card>div:last-child{align-self:stretch;min-width:0}
