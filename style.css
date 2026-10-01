@@ -429,3 +429,6 @@
 
 /* Final alignment check: text blocks occupy the complete card width. */
 .article-list>.article-card>div:last-child{align-self:stretch;min-width:0}
+/* Topic directory follows the same content margins as the listings. */
+.article-topic-directory{max-width:1160px;margin:0 auto 48px;padding:28px 24px 0}
+@media(max-width:640px){.article-topic-directory{padding:24px 16px 0;margin-bottom:32px}}
