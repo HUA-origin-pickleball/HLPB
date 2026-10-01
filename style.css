@@ -343,3 +343,7 @@
 @media(max-width:700px){.article-topic-directory>div,.home-start-grid{grid-template-columns:1fr}.home-start-grid h3{font-size:19px}}
 .article-cover{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1672/941;object-fit:contain;background:#f7f1e3}
 .article-list>.article-card>img{height:auto;min-height:0;max-height:none;aspect-ratio:1672/941;object-fit:contain;align-self:start;background:#f7f1e3}
+
+/* Keep complete gear illustrations visible beside the guide on desktop. */
+.gear-list>.gear-guide-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:center}.gear-guide-card .gear-illustration{margin:0}.gear-guide-content h2{margin-top:12px}.gear-guide-content p{margin-bottom:12px}
+@media(max-width:700px){.gear-list>.gear-guide-card{grid-template-columns:minmax(0,1fr);gap:20px}}

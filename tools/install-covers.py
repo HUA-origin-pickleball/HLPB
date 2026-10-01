@@ -28,7 +28,7 @@ source=source.replace('fallback.articles.find(y=>y.slug===x.slug):x)', 'fallback
 source=source.replace('fallback.gear.map(x=>(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title)||x)', 'fallback.gear.map(x=>{const y=(Array.isArray(v.gear)?v.gear:[]).find(y=>y.title===x.title);return y?{...y,imageUrl:x.imageUrl,imageAlt:x.imageAlt}:x})')
 (root/'script.js').write_text(source)
 esc=lambda s:html.escape(str(s),quote=True)
-cards=''.join(f'<article class="guide-card"><img class="gear-illustration" src="{esc(x["imageUrl"])}" alt="{esc(x["imageAlt"])}" width="1672" height="941" loading="lazy"><span class="tag">{i+1:02}｜{esc(x["type"])}</span><h2>{esc(x["title"])}</h2><p>{esc(x["audience"])}</p><p>{esc(x["points"])}</p><p class="note">{esc(x["note"])}</p></article>' for i,x in enumerate(data['gear']))
+cards=''.join(f'<article class="guide-card gear-guide-card"><img class="gear-illustration" src="{esc(x["imageUrl"])}" alt="{esc(x["imageAlt"])}" width="1672" height="941" loading="lazy"><div class="gear-guide-content"><span class="tag">{i+1:02}｜{esc(x["type"])}</span><h2>{esc(x["title"])}</h2><p>{esc(x["audience"])}</p><p>{esc(x["points"])}</p><p class="note">{esc(x["note"])}</p></div></article>' for i,x in enumerate(data['gear']))
 s=(root/'gear.html').read_text().replace('<div id="gear-list" class="gear-list"></div>','<div id="gear-list" class="gear-list">'+cards+'</div>')
 (root/'gear.html').write_text(s)
 generator=root/'tools/generate-content.mjs'
