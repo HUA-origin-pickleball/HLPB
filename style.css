@@ -359,3 +359,10 @@
 .site-footer .footer-nav[aria-label="網站導覽"] h2{grid-column:1/-1}
 @media(min-width:1081px){.site-footer .footer-main{grid-template-columns:minmax(260px,1.6fr) minmax(180px,1fr) minmax(200px,1.3fr) minmax(150px,1fr)}}
 @media(max-width:640px){.group-info>div{padding:20px}.site-footer .footer-nav[aria-label="網站導覽"]{gap:10px 20px}}
+
+/* News media fills each card without distortion or cropping supplied posters. */
+#news-page-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+#news-page-list>.article-card{display:flex;flex-direction:column;gap:0;overflow:hidden}
+#news-page-list>.article-card>img{display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:auto;object-fit:contain;border:0;border-bottom:1px solid var(--navy);align-self:stretch;margin:0}
+#news-page-list>.article-card>div{flex:1}
+@media(max-width:800px){#news-page-list{grid-template-columns:minmax(0,1fr)}}
