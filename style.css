@@ -347,3 +347,8 @@
 /* Keep complete gear illustrations visible beside the guide on desktop. */
 .gear-list>.gear-guide-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:26px;align-items:center}.gear-guide-card .gear-illustration{margin:0}.gear-guide-content h2{margin-top:12px}.gear-guide-content p{margin-bottom:12px}
 @media(max-width:700px){.gear-list>.gear-guide-card{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* Consistent beginner guide illustrations. */
+.beginner-steps>div{min-width:0;overflow:hidden;box-shadow:4px 4px 0 #9ab6b5}
+.beginner-illustration{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;margin:0 0 16px;background:#f7f1e3;border:1px solid #b7c8c3}
+@media(max-width:700px){.beginner-steps{grid-template-columns:1fr}.beginner-steps>div{padding:18px}.beginner-steps h2{font-size:23px}}
