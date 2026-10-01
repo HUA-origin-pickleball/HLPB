@@ -352,3 +352,10 @@
 .beginner-steps>div{min-width:0;overflow:hidden;box-shadow:4px 4px 0 #9ab6b5}
 .beginner-illustration{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;margin:0 0 16px;background:#f7f1e3;border:1px solid #b7c8c3}
 @media(max-width:700px){.beginner-steps{grid-template-columns:1fr}.beginner-steps>div{padding:18px}.beginner-steps h2{font-size:23px}}
+
+/* Keep group information cards complete and consistent. */
+.group-info>div{border:1px solid var(--navy);padding:24px;background:var(--card-surface,#f8f3e9);box-shadow:var(--card-shadow,4px 4px 0 #9ab6b5);min-width:0}
+.site-footer .footer-nav[aria-label="網站導覽"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;align-items:start;gap:10px 16px}
+.site-footer .footer-nav[aria-label="網站導覽"] h2{grid-column:1/-1}
+@media(min-width:1081px){.site-footer .footer-main{grid-template-columns:minmax(260px,1.6fr) minmax(180px,1fr) minmax(200px,1.3fr) minmax(150px,1fr)}}
+@media(max-width:640px){.group-info>div{padding:20px}.site-footer .footer-nav[aria-label="網站導覽"]{gap:10px 20px}}
