@@ -467,3 +467,5 @@
 .gear-budget{margin-bottom:32px;padding:24px;border:1px solid var(--ink,#20333f);background:#faf5e9}
 .gear-specs{margin:16px 0}.gear-specs>div{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(0,1.6fr);gap:16px;padding:12px 0;border-bottom:1px solid #cfc9ba}.gear-specs dt{font-weight:700;color:#20333f}.gear-specs dd{margin:0;line-height:1.7}.gear-sources{margin:28px 0}.gear-sources h2{font-size:1.15rem}.gear-sources p{line-height:1.9}.gear-guide-card{align-items:start!important}.gear-guide-card .gear-illustration{position:sticky;top:100px}
 @media(max-width:700px){.gear-budget{padding:20px}.gear-specs>div{grid-template-columns:minmax(0,1fr);gap:5px}.gear-guide-card .gear-illustration{position:static}.gear-specs dd{font-size:1rem}}
+
+.article-card[data-article-category="認識匹克球"] .article-tag{color:#276760;border-color:#276760}
