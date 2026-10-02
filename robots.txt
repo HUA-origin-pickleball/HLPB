@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hlpb.com.tw/sitemap.xml
