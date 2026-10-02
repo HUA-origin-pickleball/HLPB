@@ -113,7 +113,8 @@
     detail.innerHTML=`${x.coverImageUrl?`<img class="article-cover" src="${safeUrl(x.coverImageUrl)}" alt="${safe(x.coverImageAlt||x.title)}">`:""}<div class="article-meta"><span class="tag">${safe(x.category||"文章")}</span><time>發布：${fmt(x.date)}</time>${x.updatedDate?`<time>更新：${fmt(x.updatedDate)}</time>`:""}</div><div class="prose">${articleBody(x.content)}</div>${x.ctaText&&x.ctaUrl?`<a class="button outline" href="${safeUrl(x.ctaUrl)}">${safe(x.ctaText)}</a>`:""}${x.lastVerifiedDate?`<p class="article-source">最後查證：${fmt(x.lastVerifiedDate)}${x.sources?`｜資料來源：${safe(x.sources)}`:""}</p>`:""}${articleNeighbors(slug)}`
   }
   function renderStaticArticleNeighbors(){const detail=document.querySelector("main .article-detail"),match=location.pathname.match(/\/articles\/([a-z0-9-]+)\.html$/);if(!detail||!match)return;detail.querySelector(".article-neighbors")?.remove();detail.insertAdjacentHTML("beforeend",articleNeighbors(match[1]))}
-  let articleFilter="全部";
+  const requestedArticleCategory=new URLSearchParams(location.search).get("category");
+  let articleFilter=["認識匹克球","新手規則","場地知識","球具入門","找球友"].includes(requestedArticleCategory)?requestedArticleCategory:"全部";
   function render(){renderHero();renderNews();renderCourts();renderEvents();renderGroups();renderGear();renderArticles();renderStaticArticleNeighbors()}
   function next(n){slide=(slide+n+data.slides.length)%data.slides.length;renderHero()}
   const menu=$(".menu-button");if(menu)menu.addEventListener("click",()=>{const open=$(".site-header").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});

@@ -1,1 +1,0 @@
-(() => {const root=document.documentElement,intro=document.getElementById('hlpb-intro');if(!intro||!root.classList.contains('hlpb-intro-active'))return;setTimeout(()=>{intro.classList.add('is-leaving');try{sessionStorage.setItem('hlpb-intro-v2','1')}catch(e){}setTimeout(()=>{root.classList.remove('hlpb-intro-active');intro.remove()},420)},500)})();

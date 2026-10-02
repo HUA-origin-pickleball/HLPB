@@ -469,3 +469,14 @@
 @media(max-width:700px){.gear-budget{padding:20px}.gear-specs>div{grid-template-columns:minmax(0,1fr);gap:5px}.gear-guide-card .gear-illustration{position:static}.gear-specs dd{font-size:1rem}}
 
 .article-card[data-article-category="認識匹克球"] .article-tag{color:#276760;border-color:#276760}
+
+/* Clear content actions: accessible filled buttons */
+main .text-link{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 18px;margin-top:14px;border:1px solid var(--navy);border-bottom:1px solid var(--navy);background:var(--teal);color:#fff;font-size:1rem;font-weight:700;line-height:1.4;text-decoration:none;box-shadow:3px 3px 0 var(--navy);transition:background .15s,color .15s}
+main .text-link::after{content:"→";font-size:1.15em}
+main .text-link:hover{background:var(--yellow);color:var(--navy)}
+main .text-link:focus-visible{outline:3px solid var(--navy);outline-offset:4px}
+main .action-card .text-link{color:#fff}
+main .action-card .text-link:hover{color:var(--navy)}
+@media(max-width:600px){main .text-link{min-height:46px;padding:11px 18px}}
+
+.footer-directory{display:block!important}.footer-map{display:grid;grid-template-columns:1fr 1fr;gap:20px}.footer-map h3{margin:0 0 12px;font-size:.9rem;color:#f7f1e3}.footer-map a{display:block;padding:5px 0}.footer-map a:hover{text-decoration:underline;text-underline-offset:4px}
