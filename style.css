@@ -432,3 +432,10 @@
 /* Topic directory follows the same content margins as the listings. */
 .article-topic-directory{max-width:1160px;margin:0 auto 48px;padding:28px 24px 0}
 @media(max-width:640px){.article-topic-directory{padding:24px 16px 0;margin-bottom:32px}}
+
+/* Consistent, unobtrusive navigation control across desktop and mobile. */
+.back-to-top{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:50;width:46px;height:46px;display:grid;place-items:center;padding:0;border:1.5px solid #1d3341;border-radius:50%;background:#faf4e8;color:#1d3341;box-shadow:3px 3px 0 #79a6aa;cursor:pointer}
+.back-to-top[hidden]{display:none}
+.back-to-top:hover{background:#f4c349}
+.back-to-top:focus-visible{outline:3px solid #187476;outline-offset:4px}
+@media(max-width:640px){.back-to-top{width:44px;height:44px;right:14px;bottom:calc(16px + env(safe-area-inset-bottom))}}

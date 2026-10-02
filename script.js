@@ -152,3 +152,28 @@
     }
   });
 })();
+
+// Shared back-to-top control, with reduced-motion and keyboard support.
+(() => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'back-to-top';
+  button.setAttribute('aria-label', '回到頂端');
+  button.title = '回到頂端';
+  button.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 14l6-6 6 6M6 5h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  button.hidden = true;
+  document.body.append(button);
+  const sync = () => { button.hidden = window.scrollY < 360; };
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    const heading = document.querySelector('main h1');
+    if (heading) {
+      const original = heading.getAttribute('tabindex');
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+      heading.addEventListener('blur', () => original === null ? heading.removeAttribute('tabindex') : heading.setAttribute('tabindex', original), { once: true });
+    }
+  });
+})();
