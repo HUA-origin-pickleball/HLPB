@@ -177,3 +177,13 @@
     }
   });
 })();
+
+(() => {
+  const header = document.querySelector('.site-header');
+  const toggle = header?.querySelector('.menu-button');
+  if (!toggle) return;
+  const close = () => { header.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', '開啟選單'); };
+  toggle.addEventListener('click', () => toggle.setAttribute('aria-label', header.classList.contains('open') ? '關閉選單' : '開啟選單'));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && header.classList.contains('open')) { close(); toggle.focus(); } });
+  document.addEventListener('click', event => { if (!header.contains(event.target)) close(); });
+})();

@@ -444,3 +444,21 @@
 .court-photo-placeholder svg{width:clamp(64px,7vw,92px);height:auto;flex:none}
 .court-photo-placeholder strong{font-size:clamp(20px,2vw,26px);font-weight:800;line-height:1.3}
 .court-photo-placeholder span{font-size:16px;color:#3f7371;line-height:1.4}
+
+/* Shared navigation hierarchy: calmer desktop links and clear mobile entries. */
+.site-header nav{border:0;align-items:center;gap:4px}
+.site-header nav a{border:0;min-height:42px;padding:8px 13px;font-weight:700;border-radius:6px;position:relative}
+.site-header nav a:hover{background:#eee5d3;color:var(--navy)}
+.site-header nav a.active{background:var(--navy);color:var(--paper)}
+.site-header nav a:focus-visible,.footer-nav a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.menu-button{border:1px solid var(--navy);border-radius:8px;background:#faf4e8;cursor:pointer}
+.site-header.open .menu-button span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header.open .menu-button span:nth-child(2){opacity:0}
+.site-header.open .menu-button span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.site-footer .footer-nav[aria-label="網站導覽"]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:6px;align-content:start}
+.site-footer .footer-nav[aria-label="網站導覽"] h2{grid-column:1/-1;margin-bottom:8px}
+.site-footer .footer-nav[aria-label="網站導覽"] a{min-height:40px;padding:7px 10px;border-bottom:1px solid #526672;border-radius:4px;line-height:1.4}
+.site-footer .footer-nav[aria-label="網站導覽"] a:hover{background:#304a58;color:#fff;text-decoration:none}
+@media(max-width:1100px) and (min-width:901px){.site-header nav a{padding-inline:8px;font-size:13px}}
+@media(max-width:900px){.site-header.open nav{padding:16px;gap:10px;border:1px solid var(--navy);border-top:0;box-shadow:0 8px 20px #1e2f3e20;max-height:calc(100dvh - 74px);overflow-y:auto}.site-header.open nav a{min-height:52px;border:1px solid #c0c7bd;padding:12px;background:#faf4e8;color:var(--navy)}.site-header.open nav a.active{border-color:var(--navy);background:var(--navy);color:var(--paper)}.site-header.open nav a:hover{background:#eee5d3;color:var(--navy)}}
+@media(max-width:640px){.site-header.open nav{max-height:calc(100dvh - 66px)}.site-footer .footer-nav[aria-label="網站導覽"]{column-gap:16px}.site-footer .footer-nav[aria-label="網站導覽"] a{min-height:44px}}
