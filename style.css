@@ -556,3 +556,40 @@ main .action-card .text-link:hover{color:var(--navy)}
 /* Keep App download labels readable on every button state. */
 main .action-card .group-links a.app-download-link,main .action-card .group-links a.app-download-link:visited{color:#fff;background:var(--teal)}
 main .action-card .group-links a.app-download-link:hover,main .action-card .group-links a.app-download-link:focus-visible{color:#fff;background:var(--navy)}
+
+/* Activity layouts share the same grid/list preference and media ratio. */
+#event-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+#event-list .past-events{grid-column:1/-1}
+#event-list .past-events>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+#event-list .event{display:flex;flex-direction:column;min-width:0;padding:0;gap:0;overflow:hidden;border:1px solid var(--navy)}
+#event-list .event>:first-child{display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;flex:none;align-self:start;overflow:hidden;border:0;border-bottom:1px solid var(--navy);background:var(--card-surface)}
+#event-list .event .event-poster img{display:block;width:100%;height:100%;object-fit:contain}
+#event-list .event>.editorial-cover{display:flex;flex-direction:column;justify-content:center;padding:20px;gap:12px}
+#event-list .editorial-cover .cover-title{font-size:24px;line-height:1.4}
+#event-list .event>div:last-child{padding:20px;min-width:0;flex:1}
+#event-list .event h2{font-size:21px;line-height:1.5;margin:10px 0}
+#event-list[data-view="list"],#event-list[data-view="list"] .past-events>div{grid-template-columns:minmax(0,1fr)}
+#event-list[data-view="list"] .event{display:grid;grid-template-columns:200px minmax(0,1fr);align-items:start}
+#event-list[data-view="list"] .event>:first-child{width:200px;height:112.5px;border-bottom:0}
+#event-list[data-view="list"] .event>.editorial-cover{padding:12px;gap:6px}
+#event-list[data-view="list"] .editorial-cover .cover-title{font-size:15px}
+#event-list[data-view="list"] .editorial-cover .cover-kicker{font-size:10px}
+#event-list[data-view="list"] .event>div:last-child{padding:16px 20px}
+@media(max-width:640px){
+ #event-list,#event-list .past-events>div{grid-template-columns:minmax(0,1fr);gap:18px}
+ #event-list .event>div:last-child{padding:16px}
+ #event-list .event h2{font-size:19px}
+ #event-list[data-view="list"] .event{grid-template-columns:104px minmax(0,1fr)}
+ #event-list[data-view="list"] .event>:first-child{width:104px;height:58.5px}
+ #event-list[data-view="list"] .event>.editorial-cover{padding:6px;gap:3px}
+ #event-list[data-view="list"] .editorial-cover .cover-title{font-size:10px;line-height:1.2}
+ #event-list[data-view="list"] .editorial-cover .cover-kicker{font-size:8px}
+ #event-list[data-view="list"] .event>div:last-child{padding:12px}
+ #event-list[data-view="list"] .event h2{font-size:16px}
+ #event-list[data-view="list"] .event p{font-size:13px;line-height:1.6}
+}
+
+/* Align page headings with the shared content gutter at every viewport width. */
+.page-hero{padding-left:0;padding-right:0}
+.page-hero .page-title{box-sizing:border-box;max-width:1160px;width:100%;padding-left:24px;padding-right:24px;margin-left:auto;margin-right:auto}
+@media(max-width:640px){.page-hero .page-title{padding-left:16px;padding-right:16px}}
