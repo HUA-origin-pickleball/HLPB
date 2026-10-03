@@ -480,3 +480,29 @@ main .action-card .text-link:hover{color:var(--navy)}
 @media(max-width:600px){main .text-link{min-height:46px;padding:11px 18px}}
 
 .footer-directory{display:block!important}.footer-map{display:grid;grid-template-columns:1fr 1fr;gap:20px}.footer-map h3{margin:0 0 12px;font-size:.9rem;color:#f7f1e3}.footer-map a{display:block;padding:5px 0}.footer-map a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Compact home directory and plain footer links (2026-10-03). */
+.site-footer .footer-nav.footer-directory{display:flex!important;flex-direction:column;align-items:stretch;gap:10px}
+.site-footer .footer-directory .footer-map{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+.site-footer .footer-map>div{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
+.site-footer .footer-map h3{margin:0;font-size:14px;line-height:1.7}
+.site-footer .footer-nav[aria-label="網站導覽"] a{display:block;min-height:0;padding:0;border:0;border-radius:0;line-height:1.7}
+.site-footer .footer-nav[aria-label="網站導覽"] a:hover{background:transparent;color:#fff;text-decoration:underline}
+.quick-grid{gap:16px}
+.quick-grid>a,.quick-grid>a:last-child:nth-child(odd){min-height:112px;padding:20px 42px 20px 52px;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;row-gap:5px;align-content:center}
+.quick-grid>a:before{left:16px;top:21px;font-size:12px}
+.quick-grid>a:after{right:16px;top:20px;font-size:18px}
+.quick-grid svg{width:28px;height:28px;grid-column:1;grid-row:1;align-self:center}
+.quick-grid h3{grid-column:2;grid-row:1;font-size:23px;line-height:1.35;margin:0}
+.quick-grid p{grid-column:2;grid-row:2;font-size:14px;line-height:1.6;margin:0}
+@media(max-width:640px){
+ .site-footer .footer-directory,.site-footer .footer-map>div{gap:8px}
+ .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .quick-grid>a,.quick-grid>a:last-child:nth-child(odd){min-height:132px;padding:42px 14px 14px;display:block}
+ .quick-grid>a:last-child:nth-child(odd){grid-column:1/-1;min-height:108px}
+ .quick-grid>a:before{left:14px;top:13px}
+ .quick-grid>a:after{right:14px;top:13px;font-size:16px}
+ .quick-grid svg{position:absolute;right:40px;top:12px;width:22px;height:22px}
+ .quick-grid h3{font-size:18px;margin:0 0 5px}
+ .quick-grid p{font-size:13px;line-height:1.55}
+}
