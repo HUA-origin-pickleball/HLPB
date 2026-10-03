@@ -188,3 +188,18 @@
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && header.classList.contains('open')) { close(); toggle.focus(); } });
   document.addEventListener('click', event => { if (!header.contains(event.target)) close(); });
 })();
+
+// Listing view preference survives searching, filtering and pagination.
+(() => {
+ const list=document.querySelector('#article-list, #news-page-list');
+ const toolbar=document.querySelector('[data-listing-view-controls]');
+ if(!list||!toolbar)return;
+ const key='hlpb-view-'+list.id;
+ const buttons=[...toolbar.querySelectorAll('[data-listing-view]')];
+ let initial='grid';try{if(localStorage.getItem(key)==='list')initial='list'}catch(e){}
+ const select=view=>{list.dataset.view=view;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.listingView===view)));try{localStorage.setItem(key,view)}catch(e){}};
+ buttons.forEach(b=>b.addEventListener('click',()=>select(b.dataset.listingView)));
+ const sync=()=>{toolbar.hidden=list.hidden};
+ new MutationObserver(sync).observe(list,{attributes:true,attributeFilter:['hidden']});
+ select(initial);sync();
+})();
