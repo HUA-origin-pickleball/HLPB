@@ -552,3 +552,7 @@ main .action-card .text-link:hover{color:var(--navy)}
  :is(#article-list,#news-page-list)[data-view="list"]>article p{font-size:13px}
  :is(#article-list,#news-page-list)[data-view="list"] time{font-size:12px;display:block;margin-left:0}
 }
+
+/* Keep App download labels readable on every button state. */
+main .action-card .group-links a.app-download-link,main .action-card .group-links a.app-download-link:visited{color:#fff;background:var(--teal)}
+main .action-card .group-links a.app-download-link:hover,main .action-card .group-links a.app-download-link:focus-visible{color:#fff;background:var(--navy)}
