@@ -31,7 +31,7 @@ for kind,id in [('articles','article-list'),('news','news-page-list')]:
  # A genuine reader-facing subject directory makes every published article reachable.
  if kind=='articles':
   directory='<section class="article-topic-directory" aria-labelledby="topic-directory-title"><h2 id="topic-directory-title">依主題找文章</h2><div>'
-  for cat in ['新手規則','場地知識','找球友','球具入門']:
+  for cat in ['認識匹克球','新手規則','場地知識','找球友','球具入門']:
    entries=[x for x in articles if x['category']==cat]
    directory+=f'<details><summary>{cat}（{len(entries)} 篇）</summary><ul>'+''.join(f'<li><a href="articles/{esc(x["slug"])}.html">{esc(x["title"])}</a></li>' for x in entries)+'</ul></details>'
   directory+='</div></section>'
