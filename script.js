@@ -206,3 +206,17 @@
  new MutationObserver(sync).observe(list,{attributes:true,attributeFilter:['hidden']});
  select(initial);sync();
 })();
+
+// Keep the About HLPB footer entry consistent on every page.
+(() => {
+  document.querySelectorAll('.footer-map > div:first-child').forEach(nav => {
+    if (nav.querySelector('[data-about-link]')) return;
+    const link = document.createElement('a');
+    link.dataset.aboutLink = 'true';
+    // The footer brand always points to index.html in the site root.
+    link.href = new URL('about.html', document.querySelector('.site-footer .brand').href).href;
+    link.textContent = '關於 HLPB';
+    const heading = nav.querySelector('h3');
+    if (heading) heading.after(link); else nav.prepend(link);
+  });
+})();

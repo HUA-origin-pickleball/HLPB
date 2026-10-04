@@ -1,4 +1,4 @@
-// Generate readable HTML detail pages from the verified fallback content in script.js?v=20261003j.
+// Generate readable HTML detail pages from the verified fallback content in script.js?v=20261005a.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import vm from 'node:vm';
 const source=readFileSync('script.js','utf8');
@@ -31,7 +31,7 @@ for(const [type,items] of [['articles',data.articles],['news',data.news]]){
       <p>整理花蓮球場、球局、賽事與入門知識，讓想打球的人更容易找到正確資訊。</p>
       <p>原點匹克球持續投入花蓮在地教學、活動推廣與資訊整理，並管理維護本站，希望讓更多人容易找到打球的機會。發現資料有誤，或想提供活動、場地與球局資訊，可透過<a class="footer-inline-link" href="https://line.me/ti/p/~@591lqpnj" target="_blank" rel="noopener noreferrer">官方 LINE 聯絡我們</a>。</p>
     </div>
-    <nav class="footer-nav footer-directory" aria-label="網站導覽"><h2>網站導覽</h2><div class="footer-map"><div><h3>主要頁面</h3><a href="../index.html">首頁</a><a href="../news.html">最新消息</a><a href="../courts.html">找球場</a><a href="../groups.html">揪打球</a><a href="../events.html">想參賽</a><a href="../articles.html">看文章</a><a href="../gear.html">買球具</a><a href="../beginners.html">新手區</a></div><div><h3>文章主題</h3><a href="../articles.html?category=%E8%AA%8D%E8%AD%98%E5%8C%B9%E5%85%8B%E7%90%83">認識匹克球</a><a href="../articles.html?category=%E6%96%B0%E6%89%8B%E8%A6%8F%E5%89%87">新手規則</a><a href="../articles.html?category=%E5%A0%B4%E5%9C%B0%E7%9F%A5%E8%AD%98">場地知識</a><a href="../articles.html?category=%E7%90%83%E5%85%B7%E5%85%A5%E9%96%80">球具入門</a><a href="../articles.html?category=%E6%89%BE%E7%90%83%E5%8F%8B">找球友</a></div></div></nav>
+    <nav class="footer-nav footer-directory" aria-label="網站導覽"><h2>網站導覽</h2><div class="footer-map"><div><h3>主要頁面</h3><a data-about-link="true" href="../about.html">關於 HLPB</a><a href="../index.html">首頁</a><a href="../news.html">最新消息</a><a href="../courts.html">找球場</a><a href="../groups.html">揪打球</a><a href="../events.html">想參賽</a><a href="../articles.html">看文章</a><a href="../gear.html">買球具</a><a href="../beginners.html">新手區</a></div><div><h3>文章主題</h3><a href="../articles.html?category=%E8%AA%8D%E8%AD%98%E5%8C%B9%E5%85%8B%E7%90%83">認識匹克球</a><a href="../articles.html?category=%E6%96%B0%E6%89%8B%E8%A6%8F%E5%89%87">新手規則</a><a href="../articles.html?category=%E5%A0%B4%E5%9C%B0%E7%9F%A5%E8%AD%98">場地知識</a><a href="../articles.html?category=%E7%90%83%E5%85%B7%E5%85%A5%E9%96%80">球具入門</a><a href="../articles.html?category=%E6%89%BE%E7%90%83%E5%8F%8B">找球友</a></div></div></nav>
     <nav class="footer-nav" aria-label="花蓮匹克球相關單位"><h2>花蓮相關單位</h2>
       <a href="https://www.facebook.com/HLPickleball" target="_blank" rel="noopener noreferrer">花蓮縣匹克球協會 Facebook ↗</a>
       <p class="footer-hint">以上為各單位對外頁面，HLPB 並非其官方網站。</p>
@@ -41,7 +41,7 @@ for(const [type,items] of [['articles',data.articles],['news',data.news]]){
     </nav>
   </div>
   <div class="footer-bottom"><p>本站彙整公開資訊與球友提供內容，並非場館或賽事主辦單位公告。場地開放、費用及報名方式請以管理單位或主辦單位最新資訊為準。</p><small>© 2026 HLPB 花蓮匹克球資訊站</small></div>
-</footer><script src="../script.js?v=20261003j" defer></script></body></html>`;writeFileSync(`${type}/${x.slug}.html`,html);const old=`https://hlpb.com.tw/${type}.html?slug=${x.slug}`;sitemap=sitemap.replace(`<loc>${old}</loc>`,`<loc>${uri}</loc>`);if(!sitemap.includes(`<loc>${uri}</loc>`))sitemap=sitemap.replace('</urlset>',`  <url><loc>${uri}</loc><lastmod>${date}</lastmod></url>\n</urlset>`);
+</footer><script src="../script.js?v=20261005a" defer></script></body></html>`;writeFileSync(`${type}/${x.slug}.html`,html);const old=`https://hlpb.com.tw/${type}.html?slug=${x.slug}`;sitemap=sitemap.replace(`<loc>${old}</loc>`,`<loc>${uri}</loc>`);if(!sitemap.includes(`<loc>${uri}</loc>`))sitemap=sitemap.replace('</urlset>',`  <url><loc>${uri}</loc><lastmod>${date}</lastmod></url>\n</urlset>`);
   // Keep the verified Huilan tournament schema when news detail pages are regenerated.
   if(type==='news'&&x.slug==='huilan-cup-pickleball-2026'){
     const event={'@context':'https://schema.org','@type':'SportsEvent',name:'115 年花蓮縣「洄瀾盃」綜合體育嘉年華競賽－匹克球項目',startDate:'2026-11-08',location:{'@type':'Place',name:'花蓮縣立中正體育館'},url:uri};
