@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hlpb.com.tw/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -143,4 +143,7 @@
   <url><loc>https://hlpb.com.tw/articles/pickleball-paddle-car-storage.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://hlpb.com.tw/articles/hualien-pickleball-tournament-regulations.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://hlpb.com.tw/about.html</loc><lastmod>2026-10-05</lastmod></url>
+  <url><loc>https://hlpb.com.tw/articles/pickleball-ball-introduction.html</loc><lastmod>2026-10-05</lastmod></url>
+  <url><loc>https://hlpb.com.tw/articles/pickleball-stray-ball-etiquette.html</loc><lastmod>2026-10-05</lastmod></url>
+  <url><loc>https://hlpb.com.tw/articles/hualien-covered-outdoor-courts.html</loc><lastmod>2026-10-05</lastmod></url>
 </urlset>
