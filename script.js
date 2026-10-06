@@ -144,8 +144,7 @@
   button.addEventListener('click', async () => {
     const url = document.querySelector('link[rel="canonical"]')?.href || location.href;
     const title = document.querySelector('main h1')?.textContent.trim() || document.title;
-    const summary = document.querySelector('meta[name="description"]')?.content.trim() || '';
-    const text = ['對匹克球有興趣的朋友，可以看看這篇。', title, summary, 'HLPB 花蓮匹克球資訊站'].filter(Boolean).join('\n\n');
+    const text = `來看看這篇文章：${title}`;
     const copyText = async () => {
       await navigator.clipboard.writeText(`${text}\n${url}`);
       button.textContent = '已複製分享文字';
