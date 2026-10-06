@@ -41,7 +41,7 @@ for(const [type,items] of [['articles',data.articles],['news',data.news]]){
     </nav>
   </div>
   <div class="footer-bottom"><p>本站彙整公開資訊與球友提供內容，並非場館或賽事主辦單位公告。場地開放、費用及報名方式請以管理單位或主辦單位最新資訊為準。</p><small>© 2026 HLPB 花蓮匹克球資訊站</small></div>
-</footer><script src="../script.js?v=20261005a" defer></script></body></html>`;writeFileSync(`${type}/${x.slug}.html`,html);const old=`https://hlpb.com.tw/${type}.html?slug=${x.slug}`;sitemap=sitemap.replace(`<loc>${old}</loc>`,`<loc>${uri}</loc>`);if(!sitemap.includes(`<loc>${uri}</loc>`))sitemap=sitemap.replace('</urlset>',`  <url><loc>${uri}</loc><lastmod>${date}</lastmod></url>\n</urlset>`);
+</footer><script src="../script.js?v=20261006-share2" defer></script></body></html>`;writeFileSync(`${type}/${x.slug}.html`,html);const old=`https://hlpb.com.tw/${type}.html?slug=${x.slug}`;sitemap=sitemap.replace(`<loc>${old}</loc>`,`<loc>${uri}</loc>`);if(!sitemap.includes(`<loc>${uri}</loc>`))sitemap=sitemap.replace('</urlset>',`  <url><loc>${uri}</loc><lastmod>${date}</lastmod></url>\n</urlset>`);
   // Keep the verified Huilan tournament schema when news detail pages are regenerated.
   if(type==='news'&&x.slug==='huilan-cup-pickleball-2026'){
     const event={'@context':'https://schema.org','@type':'SportsEvent',name:'115 年花蓮縣「洄瀾盃」綜合體育嘉年華競賽－匹克球項目',startDate:'2026-11-08',location:{'@type':'Place',name:'花蓮縣立中正體育館'},url:uri};
