@@ -228,3 +228,29 @@
     if (heading) heading.after(link); else nav.prepend(link);
   });
 })();
+
+// Animate visible content once; never hide content or wait for animation to enable links.
+(() => {
+ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+ if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
+ const seen = new WeakSet();
+ const selector = '.page-title,.section-heading,.quick-grid>a,.court-grid>.card,.event-list .event,.article-list>.article-card,.gear-list>.guide-card';
+ const observer = new IntersectionObserver(entries => {
+  for (const {target,isIntersecting} of entries) {
+   if (!isIntersecting) continue;
+   observer.unobserve(target);
+   if (reduced.matches) continue;
+   target.animate([{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:380,easing:'cubic-bezier(.2,.7,.3,1)'});
+  }
+ }, {threshold:0.08});
+ let queued = false;
+ const scan = () => {
+  queued = false;
+  document.querySelectorAll(selector).forEach(el => {if(!seen.has(el)){seen.add(el);observer.observe(el)}});
+ };
+ const schedule = () => {if(!queued){queued=true;requestAnimationFrame(scan)}};
+ const main=document.querySelector('main');
+ if(main)new MutationObserver(schedule).observe(main,{childList:true,subtree:true});
+ reduced.addEventListener('change',()=>{if(reduced.matches)document.querySelectorAll(selector).forEach(el=>el.getAnimations().forEach(a=>a.cancel()))});
+ scan();
+})();

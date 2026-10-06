@@ -611,3 +611,31 @@ html{scroll-behavior:auto}
 .menu-button span,.button,main .text-link,.back-to-top,.article-card,.court-card{transition:none!important;animation:none!important}
 .article-card:hover,.court-card:hover,.button:hover{transform:none!important}
 }
+
+/* Phone and tablet lists keep a readable full-width media column. */
+@media(max-width:900px){
+#event-list,#event-list .past-events>div{grid-template-columns:minmax(0,1fr)}
+#event-list[data-view="list"] .event,
+:is(#article-list,#news-page-list)[data-view="list"]>article{display:flex;flex-direction:column;gap:0}
+#event-list[data-view="list"] .event>:first-child,
+:is(#article-list,#news-page-list)[data-view="list"]>article>img,
+:is(#article-list,#news-page-list)[data-view="list"]>article>.card-cover,
+:is(#article-list,#news-page-list)[data-view="list"]>article>.editorial-cover{width:100%;height:auto;aspect-ratio:16/9;min-height:0;border-bottom:1px solid var(--navy)}
+#event-list[data-view="list"] .event>.editorial-cover,
+:is(#article-list,#news-page-list)[data-view="list"]>article>.editorial-cover{padding:20px;gap:10px}
+#event-list[data-view="list"] .editorial-cover .cover-title,
+:is(#article-list,#news-page-list)[data-view="list"] .editorial-cover .cover-title{font-size:22px;line-height:1.4}
+#event-list[data-view="list"] .editorial-cover .cover-kicker,
+:is(#article-list,#news-page-list)[data-view="list"] .editorial-cover .cover-kicker{font-size:12px}
+#event-list[data-view="list"] .event>div:last-child,
+:is(#article-list,#news-page-list)[data-view="list"]>article>div:last-child{width:100%;padding:16px}
+#event-list[data-view="list"] .event h2,
+:is(#article-list,#news-page-list)[data-view="list"]>article h2{font-size:19px}
+#event-list[data-view="list"] .event p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+#event-list .event-poster img{object-fit:contain}
+}
+.listing-view-controls button,.court-filters button,.article-filters button{transition:background-color 180ms ease,color 180ms ease,transform 180ms ease}
+.listing-view-controls button:active,.court-filters button:active{transform:scale(.97)}
+main .text-link::after{transition:transform 180ms ease}
+@media(hover:hover) and (pointer:fine){main .text-link:hover::after{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){.listing-view-controls button,.court-filters button,.article-filters button,main .text-link::after{transition:none}}
