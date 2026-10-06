@@ -593,3 +593,21 @@ main .action-card .group-links a.app-download-link:hover,main .action-card .grou
 .page-hero{padding-left:0;padding-right:0}
 .page-hero .page-title{box-sizing:border-box;max-width:1160px;width:100%;padding-left:24px;padding-right:24px;margin-left:auto;margin-right:auto}
 @media(max-width:640px){.page-hero .page-title{padding-left:16px;padding-right:16px}}
+
+/* Subtle interaction feedback; content stays visible without animation. */
+.menu-button span{transition:transform 180ms ease,opacity 180ms ease}
+.button,main .text-link,.back-to-top{transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease,color 160ms ease}
+.button:active,main .text-link:active{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--navy)}
+@media(hover:hover) and (pointer:fine){
+.article-card,.court-card{transition:transform 180ms ease,box-shadow 180ms ease}
+.article-card:has(a):hover,.court-card:has(a):hover{transform:translateY(-3px);box-shadow:5px 8px 0 var(--sea)}
+}
+@media(max-width:900px) and (prefers-reduced-motion:no-preference){
+.site-header.open nav{animation:hlpb-menu-in 180ms ease-out}
+}
+@keyframes hlpb-menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.menu-button span,.button,main .text-link,.back-to-top,.article-card,.court-card{transition:none!important;animation:none!important}
+.article-card:hover,.court-card:hover,.button:hover{transform:none!important}
+}
