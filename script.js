@@ -139,19 +139,28 @@
   button.type = 'button';
   button.className = 'share-page-button';
   button.textContent = '分享這篇';
-  button.setAttribute('aria-label', '分享或複製本頁連結');
+  button.setAttribute('aria-label', '分享或複製文章介紹與連結');
   meta.append(button);
   button.addEventListener('click', async () => {
     const url = document.querySelector('link[rel="canonical"]')?.href || location.href;
-    try {
-      if (navigator.share) { await navigator.share({title:document.title,url}); return; }
-      await navigator.clipboard.writeText(url);
-      button.textContent = '已複製連結';
+    const title = document.querySelector('main h1')?.textContent.trim() || document.title;
+    const summary = document.querySelector('meta[name="description"]')?.content.trim() || '';
+    const text = ['對匹克球有興趣的朋友，可以看看這篇。', title, summary, 'HLPB 花蓮匹克球資訊站'].filter(Boolean).join('\n\n');
+    const copyText = async () => {
+      await navigator.clipboard.writeText(`${text}\n${url}`);
+      button.textContent = '已複製分享文字';
       setTimeout(() => { button.textContent = '分享這篇'; }, 2500);
+    };
+    try {
+      if (navigator.share) { await navigator.share({title,text,url}); return; }
+      await copyText();
     } catch (error) {
       if (error?.name !== 'AbortError') {
-        button.textContent = '請複製網址列連結';
-        setTimeout(() => { button.textContent = '分享這篇'; }, 3000);
+        try { await copyText(); }
+        catch {
+          button.textContent = '請使用瀏覽器分享功能';
+          setTimeout(() => { button.textContent = '分享這篇'; }, 3000);
+        }
       }
     }
   });
