@@ -302,3 +302,6 @@
     ]);
   });
 })();
+
+// Shared discovery and reading tools.
+(()=>{const s=document.createElement("script");s.src="/features.js?v=20261009-1";document.body.append(s)})();
