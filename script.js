@@ -230,26 +230,22 @@
   });
 })();
 
-// Alternate left/right entrances for sections and cards without hiding content.
+// Consistent section entrances, without replaying the initial viewport.
 (() => {
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  if(!('IntersectionObserver' in window)||!Element.prototype.animate)return;
- const seen=new WeakSet(),directions=new WeakMap();let sequence=0;
- const selector='main>section,main>article,.section-heading,.quick-grid>a,.card,.guide-card,.action-card,.event,.article-card,.rule-card,.skill-card,.beginner-callout,.prose>h2';
+ const seen=new WeakSet();
+ const selector='main>section,main>article,main>.article-list>.article-card,main>.event-list>.event';
  const observer=new IntersectionObserver(entries=>{
-  for(const {target,isIntersecting} of entries){
-   if(!isIntersecting)continue;observer.unobserve(target);
-   if(reduced.matches)continue;
-   const distance=matchMedia('(max-width:640px)').matches?16:28;
-   target.animate([{opacity:0,transform:`translateX(${directions.get(target)*distance}px)`},{opacity:1,transform:'translateX(0)'}],{duration:480,easing:'cubic-bezier(.2,.7,.3,1)'});
-  }
- },{threshold:0.04});
+  entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top).forEach(({target},i)=>{
+   observer.unobserve(target);if(reduced.matches)return;
+   target.animate([{opacity:.65,transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:300,delay:Math.min(i*35,105),easing:'ease-out'});
+  });
+ },{threshold:.08});
  let queued=false;
- const scan=()=>{queued=false;document.querySelectorAll(selector).forEach(el=>{if(!seen.has(el)){seen.add(el);directions.set(el,sequence++%2?-1:1);observer.observe(el)}})};
- const main=document.querySelector('main');
- if(main)new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(scan)}}).observe(main,{childList:true,subtree:true});
- reduced.addEventListener('change',()=>{if(reduced.matches)document.querySelectorAll(selector).forEach(el=>el.getAnimations().forEach(a=>a.cancel()))});
- scan();
+ const scan=()=>{queued=false;document.querySelectorAll(selector).forEach(el=>{if(seen.has(el))return;seen.add(el);if(el.getBoundingClientRect().top<innerHeight)return;if(el.parentElement.closest(selector))return;observer.observe(el)})};
+ const main=document.querySelector('main');if(main)new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(scan)}}).observe(main,{childList:true,subtree:true});
+ reduced.addEventListener('change',()=>{if(reduced.matches)document.querySelectorAll(selector).forEach(el=>el.getAnimations().forEach(a=>a.cancel()))});scan();
 })();
 
 // Site-wide sharing and home-screen shortcut help. No app or offline cache.
