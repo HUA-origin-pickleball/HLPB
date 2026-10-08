@@ -251,3 +251,54 @@
  reduced.addEventListener('change',()=>{if(reduced.matches)document.querySelectorAll(selector).forEach(el=>el.getAnimations().forEach(a=>a.cancel()))});
  scan();
 })();
+
+// Site-wide sharing and home-screen shortcut help. No app or offline cache.
+(() => {
+  const footer = document.querySelector('.site-footer');
+  if (!footer || document.querySelector('.site-quick-actions')) return;
+  let installPrompt;
+  window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installPrompt = event; });
+  window.addEventListener('appinstalled', () => { installPrompt = null; });
+  const styles = document.createElement('style');
+  styles.textContent = `.site-quick-actions{display:flex;flex-wrap:wrap;gap:12px;padding:24px 0;margin:0 0 24px;border-bottom:1px solid #657b83}.site-quick-actions button{font:inherit;font-weight:700;min-height:48px;padding:12px 20px;background:#f5c451;color:#142e40;border:2px solid #f5c451;border-radius:6px;cursor:pointer}.site-quick-actions button:last-child{background:transparent;color:#fff;border-color:#a9c4bd}.site-quick-actions button:focus-visible,.site-action-dialog button:focus-visible{outline:3px solid #63b7a8;outline-offset:4px}.site-action-dialog{box-sizing:border-box;width:min(520px,calc(100% - 32px));max-height:85vh;overflow:auto;padding:28px;border:2px solid #142e40;border-radius:12px;background:#f7f1e5;color:#142e40}.site-action-dialog::backdrop{background:#142e4099}.site-action-dialog h2{font-size:1.4rem;margin:0 0 16px}.site-action-dialog p{line-height:1.7}.site-action-dialog button{font:inherit;font-weight:700;padding:12px 20px;border:0;border-radius:5px;background:#26756e;color:white;min-height:44px;cursor:pointer}.site-action-dialog textarea{box-sizing:border-box;width:100%;min-height:140px;padding:12px;font:inherit;line-height:1.6;background:white;color:#142e40;border:1px solid #647879}@media(max-width:600px){.site-quick-actions{flex-direction:column}.site-quick-actions button{width:100%}}`;
+  document.head.append(styles);
+  const actions = document.createElement('div');
+  actions.className = 'site-quick-actions';
+  actions.setAttribute('aria-label', '分享與加入主畫面');
+  const share = document.createElement('button'); share.type = 'button'; share.textContent = '分享網站給朋友 ↗';
+  const home = document.createElement('button'); home.type = 'button'; home.textContent = '加入手機主畫面 ＋';
+  actions.append(share, home); footer.prepend(actions);
+  function showDialog(title, paragraphs, copy) {
+    const dialog = document.createElement('dialog'); dialog.className = 'site-action-dialog';
+    const heading = document.createElement('h2'); heading.id = 'site-action-title'; heading.textContent = title;
+    dialog.setAttribute('aria-labelledby', heading.id); dialog.append(heading);
+    paragraphs.forEach(value => { const p = document.createElement('p'); p.textContent = value; dialog.append(p); });
+    if (copy) { const field = document.createElement('textarea'); field.readOnly = true; field.value = copy; field.setAttribute('aria-label', '網站分享文字，請選取後複製'); dialog.append(field); }
+    const close = document.createElement('button'); close.type = 'button'; close.textContent = '知道了'; close.addEventListener('click', () => dialog.close()); dialog.append(close);
+    const previous = document.activeElement;
+    dialog.addEventListener('close', () => { dialog.remove(); previous?.focus(); });
+    document.body.append(dialog); dialog.showModal();
+  }
+  const title = 'HLPB 花蓮匹克球資訊站';
+  const text = '👀 想在花蓮打匹克球？這個網站分享給你！\n查球場、找球友、看賽事，也有新手教學與器材知識。';
+  const url = 'https://hlpb.com.tw/';
+  share.addEventListener('click', async () => {
+    try { if (navigator.share) { await navigator.share({ title, text, url }); return; } }
+    catch (error) { if (error?.name === 'AbortError') return; }
+    const copy = `${text}\n${title}\n${url}`;
+    try { await navigator.clipboard.writeText(copy); share.textContent = '已複製網站介紹與連結'; setTimeout(() => { share.textContent = '分享網站給朋友 ↗'; }, 3000); }
+    catch { showDialog('分享網站給朋友', ['請選取以下文字並複製，貼給朋友就能分享。'], copy); }
+  });
+  home.addEventListener('click', async () => {
+    if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) { showDialog('已從主畫面開啟', ['你目前已使用主畫面入口開啟 HLPB。']); return; }
+    if (installPrompt) {
+      const prompt = installPrompt; installPrompt = null;
+      try { await prompt.prompt(); await prompt.userChoice; return; } catch { /* Show manual steps when prompting is unavailable. */ }
+    }
+    showDialog('加入手機主畫面', [
+      'Android：請用 Chrome 或 Brave 開啟 HLPB，點瀏覽器選單「⋮」，選擇「加入主畫面」或「新增至主畫面」，再確認新增。選項名稱依瀏覽器版本而異。',
+      'iPhone：請用 Safari 開啟 HLPB，點「分享」，選擇「加入主畫面」，再點「新增」。',
+      '如果你在 LINE、Facebook 或其他 App 內瀏覽，請先選「在外部瀏覽器開啟」。這是網站的快捷入口，不需要下載 Android App。'
+    ]);
+  });
+})();
