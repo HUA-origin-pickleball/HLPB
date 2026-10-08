@@ -674,3 +674,10 @@ main .text-link::after{transition:transform 180ms ease}
 @keyframes hlpb-menu-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes hlpb-menu-item{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
 @media(prefers-reduced-motion:reduce){.site-header.open nav,.site-header.open nav a{animation:none!important}}
+
+/* Reviewed article emphasis: scoped to article prose. */
+.article-detail .prose mark{background:#ffe58a;color:#173342;padding:.05em .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.article-detail .prose table{width:100%;border-collapse:collapse;table-layout:fixed;margin:1.4rem 0;overflow-wrap:anywhere}
+.article-detail .prose th,.article-detail .prose td{border:1px solid #a8b9b4;padding:.75rem;text-align:left;vertical-align:top}
+.article-detail .prose th{background:#e7ebe2;font-weight:700}
+@media(max-width:600px){.article-detail .prose td,.article-detail .prose th{padding:.55rem;font-size:1rem}}
