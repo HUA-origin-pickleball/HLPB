@@ -118,7 +118,14 @@
   function renderStaticArticleNeighbors(){const detail=document.querySelector("main .article-detail"),match=location.pathname.match(/\/articles\/([a-z0-9-]+)\.html$/);if(!detail||!match)return;detail.querySelector(".article-neighbors")?.remove();detail.insertAdjacentHTML("beforeend",articleNeighbors(match[1]))}
   const requestedArticleCategory=new URLSearchParams(location.search).get("category");
   let articleFilter=["認識匹克球","新手規則","場地知識","球具入門","找球友","在地推廣"].includes(requestedArticleCategory)?requestedArticleCategory:"全部";
-  function render(){renderHero();renderNews();renderCourts();renderEvents();renderGroups();renderGear();renderArticles();renderStaticArticleNeighbors()}
+  function renderLatestReading(){
+    const track=$("#latest-reading-track");if(!track)return;
+    const items=articleSequence().slice(0,6);
+    const links=items.map(x=>`<a href="${detailHref("articles",x)}">${safe(x.title)} →</a>`).join("");
+    track.innerHTML=`<div class="latest-reading-group">${links}</div><div class="latest-reading-group" aria-hidden="true" inert>${links}</div>`;
+    const toggle=$("#latest-reading-toggle");toggle.onclick=()=>{const paused=toggle.closest(".latest-reading").classList.toggle("is-paused");toggle.setAttribute("aria-pressed",String(paused));toggle.textContent=paused?"播放":"暫停"};
+  }
+  function render(){renderHero();renderNews();renderCourts();renderEvents();renderGroups();renderGear();renderArticles();renderStaticArticleNeighbors();renderLatestReading()}
   function next(n){slide=(slide+n+data.slides.length)%data.slides.length;renderHero()}
   const menu=$(".menu-button");if(menu)menu.addEventListener("click",()=>{const open=$(".site-header").classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
   const prev=$("#slide-prev"),nextButton=$("#slide-next");if(prev)prev.addEventListener("click",()=>next(-1));if(nextButton)nextButton.addEventListener("click",()=>next(1));
