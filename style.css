@@ -700,3 +700,7 @@ html{scrollbar-gutter:stable}
 @media(max-width:767px){.site-header:not(:has(.hlpb-header-tools))::after{flex-basis:88px}}
 @media(min-width:768px){.site-header.open nav,.site-header.open nav a{animation:none!important}}
 @media(max-width:767px){.site-header.open nav a{animation:none!important}.site-header.open nav{animation:hlpb-menu-in 180ms ease-out}}
+
+/* Preserve every edge of supplied event posters in both listing views. */
+:is(#article-list,#news-page-list)>article>img{object-fit:contain}
+.article-cover[src*="assets/events/"],.event-detail-poster img{height:auto;aspect-ratio:auto;object-fit:contain}
