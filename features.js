@@ -1,7 +1,7 @@
 (()=>{
 'use strict';
 const root=document.querySelector('main');if(!root)return;
-const css=document.createElement('link');css.rel='stylesheet';css.href='/features.css?v=20261012-beginner-simple';document.head.append(css);
+const css=document.createElement('link');css.rel='stylesheet';css.href='/features.css?v=20261012-beginner-final';document.head.append(css);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n};
 const key='hlpb-saved-v1';let saved=[];let storageOK=true;try{saved=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(saved))saved=[];saved=saved.filter(x=>x&&typeof x.url==='string'&&/^\/(articles|news|events)\/[a-z0-9-]+\.html$/.test(x.url));}catch{storageOK=false}
 const status=el('p','','hlpb-tool-status');status.setAttribute('role','status');
