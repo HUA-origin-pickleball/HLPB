@@ -40,3 +40,5 @@
 @media(max-width:650px){.hlpb-reading-path-simple .hlpb-path-steps{grid-template-columns:1fr;gap:10px}.hlpb-reading-path-simple .hlpb-path-step{min-height:88px;padding:16px}.hlpb-path-copy strong{font-size:1.05rem}.skill-level-summary .skill-card-top strong,.skill-level-summary .skill-card-top mark{font-size:1.4rem}.skill-level-detail>.skill-level-summary{padding:16px!important;min-height:68px}.skill-level-detail .skill-reading-links{margin-left:16px;margin-right:16px}}
 
 .page-beginners .hlpb-reading-path:not(.hlpb-reading-path-simple){display:none}
+
+.skill-level-grid{align-items:start}
