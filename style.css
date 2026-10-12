@@ -704,3 +704,6 @@ html{scrollbar-gutter:stable}
 /* Preserve every edge of supplied event posters in both listing views. */
 :is(#article-list,#news-page-list)>article>img{object-fit:contain}
 .article-cover[src*="assets/events/"],.event-detail-poster img{height:auto;aspect-ratio:auto;object-fit:contain}
+
+/* Reviewed tutorial media */
+.video-section{margin:2rem 0;padding-top:1.2rem;border-top:1px solid #9db6ad}.video-frame{aspect-ratio:16/9;width:100%;background:#193747;display:grid;place-items:center;overflow:hidden}.video-frame iframe{width:100%;height:100%;border:0}.video-load{font:inherit;font-weight:700;padding:1rem;background:#ffdd85;color:#142d40;border:2px solid #e5b744;cursor:pointer;max-width:90%}.video-load:focus-visible{outline:3px solid white;outline-offset:4px}.skill-card .chips{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}.skill-card .chips .text-link{font-size:.9rem;margin:0}.skill-reading-note{font-size:.95rem}.prose .focus{background:#fff0bf;padding:1rem;border-left:4px solid #e9ba46}.prose .table-wrap{overflow-x:auto}
