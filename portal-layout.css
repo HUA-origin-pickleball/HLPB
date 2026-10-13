@@ -135,3 +135,7 @@ main .home-contact h2{font-size:clamp(23px,2.3vw,29px);line-height:1.4}
  .site-footer .hlpb-site-status{justify-content:flex-start}
 }
 @media(prefers-reduced-motion:reduce){main .quick-grid>a{transition:none}}
+
+/* Avoid the legacy directory shortcut duplicating the new grouped footer. */
+.footer-main-clean .footer-directory>[data-directory-link]{display:none!important}
+.about-intro .text-link::after{content:none}
