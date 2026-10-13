@@ -1,0 +1,137 @@
+/* Shared portal rhythm and a quiet, grouped footer. */
+main>.section{max-width:1200px;padding-block:36px;padding-inline:28px}
+main>.section+.section{padding-top:28px}
+main .section-heading{margin-bottom:20px;gap:18px}
+main .section-heading h2{font-size:clamp(25px,2.6vw,34px);line-height:1.3}
+main .section-heading p{font-size:16px;line-height:1.65}
+.page-hero{padding-block:34px;min-height:0}
+.page-title h1{font-size:clamp(30px,3.5vw,48px);line-height:1.25}
+.page-title p{font-size:17px;line-height:1.65;max-width:52rem}
+main>.content{max-width:1200px;padding:28px 28px 40px}
+.page-title{max-width:1200px;padding-inline:28px}
+.prose h2{padding-left:12px;border-left:4px solid #efc454}
+
+main .intro{padding-top:30px;padding-bottom:26px}
+main .quick-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+main .quick-grid>a{display:grid;grid-template-columns:38px minmax(0,1fr);grid-template-rows:auto auto;gap:4px 14px;align-content:center;min-height:96px;padding:18px 38px 18px 18px;border:1px solid #a7bbb4;border-radius:8px;background:#fcf9ef;box-shadow:none;transition:border-color 160ms ease,background 160ms ease}
+main .quick-grid>a::before{display:none}
+main .quick-grid>a::after{right:15px;top:18px;color:#3d746d;font-size:19px}
+main .quick-grid>a>svg{position:static;width:38px;height:38px;grid-row:1/3;padding:7px;box-sizing:border-box;border-radius:8px;background:#e3eee7;color:#376f67;align-self:center}
+main .quick-grid>a:nth-child(1)>svg,main .quick-grid>a:nth-child(4)>svg{background:#f8e5a7;color:#374e59}
+main .quick-grid>a:nth-child(2)>svg,main .quick-grid>a:nth-child(5)>svg{background:#dbe9ed;color:#335668}
+main .quick-grid h3{font-size:20px;line-height:1.35;margin:0}
+main .quick-grid p{grid-column:2;font-size:14px;line-height:1.5;margin:0;color:#52665f}
+main .quick-grid>a:hover{background:#f2f5e9;border-color:#3d746d;transform:none;box-shadow:none}
+main .quick-grid>a:focus-visible{outline:3px solid #d5aa35;outline-offset:3px}
+main .quick-grid>a[href="beginners.html"]{grid-column:1/-1;min-height:90px;background:#326d66;border-color:#326d66;color:#fffaf0}
+main .quick-grid>a[href="beginners.html"] p,main .quick-grid>a[href="beginners.html"]::after{color:#fffaf0}
+main .quick-grid>a[href="beginners.html"]>svg{background:#f6d779;color:#183746}
+main .quick-grid>a[href="beginners.html"] h3{font-size:23px}
+main .quick-grid>a:last-child:nth-child(odd){display:grid;min-height:90px;padding:18px 38px 18px 18px;grid-column:1/-1}
+
+main .hlpb-calendar.section{padding-top:24px;padding-bottom:30px}
+main .hlpb-calendar>h2{font-size:clamp(24px,2.6vw,32px);line-height:1.3;margin:0 0 10px}
+main .hlpb-calendar>p{font-size:16px;line-height:1.6;margin:0 0 18px;color:#52665f}
+main .hlpb-calendar-layout{gap:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;border:1px solid #9fb4aa;border-radius:10px;background:#fcf9ef;overflow:hidden}
+main .hlpb-calendar-panel,main .hlpb-calendar-agenda{border:0;box-shadow:none;border-radius:0;padding:22px;background:transparent}
+main .hlpb-calendar-agenda{background:#e8eee4;border-left:1px solid #b5c6ba}
+main .hlpb-calendar-controls{margin-bottom:14px}
+main .hlpb-calendar-controls h3{font-size:20px}
+main .hlpb-calendar-grid .hlpb-calendar-day{height:48px;font-size:16px}
+main .hlpb-calendar-agenda>h3{color:#285f58;font-size:21px;margin-bottom:10px}
+main .hlpb-calendar-item{padding:12px 0}
+main .hlpb-calendar-item>a{font-size:18px;line-height:1.5}
+main .hlpb-calendar-item .hlpb-calendar-date{font-size:14px;font-weight:600}
+main .hlpb-calendar-item p{font-size:15px;line-height:1.55}
+main .hlpb-calendar-add{margin:5px 0;min-height:40px;background:#fcf9ef}
+
+main .home-start{background:#e8efe7;border-radius:10px}
+main .home-start-grid{gap:18px}
+main .home-start-grid>div{padding:18px;border:0;border-top:3px solid #437c72;background:#fcf9ef;border-radius:0 0 8px 8px;box-shadow:none}
+main .home-start-grid>div:nth-child(2){border-top-color:#7da8b1}
+main .home-start-grid>div:nth-child(3){border-top-color:#e5b747}
+main .home-start-grid h3{font-size:21px;margin-top:0}
+main .home-start-grid p{font-size:16px;line-height:1.65}
+main .about-intro{background:transparent;border-top:0;border-bottom:1px solid #a9bbb0;gap:28px;align-items:center}
+main .about-intro h2{font-size:clamp(24px,2.3vw,30px);line-height:1.4}
+main .about-intro p{font-size:16px;line-height:1.7}
+main .beginner-callout{padding-block:24px;background:#f2e8c8;border:0;border-radius:10px;box-shadow:none}
+main .beginner-callout h2{font-size:25px;line-height:1.35}
+main .home-contact{padding-block:28px}
+main .home-contact h2{font-size:clamp(23px,2.3vw,29px);line-height:1.4}
+
+.site-footer .footer-main-clean{max-width:1200px;padding:34px 28px 22px;grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,1fr);gap:22px 34px}
+.site-footer .footer-main-clean .footer-about{min-width:0}
+.site-footer .footer-main-clean .brand{align-items:center;gap:10px;margin:0 0 14px}
+.site-footer .footer-main-clean .brand img{width:44px;height:44px;object-fit:contain}
+.site-footer .footer-main-clean .brand b{font-size:16px;line-height:1.4}
+.site-footer .footer-main-clean .footer-about p{font-size:14px;line-height:1.7;max-width:28em;margin:0;color:#d3ded9}
+.site-footer .footer-main-clean .footer-nav{display:block!important}
+.site-footer .footer-main-clean h2{font-size:15px;line-height:1.4;color:#f4d47a;margin:0 0 10px}
+.site-footer .footer-main-clean .footer-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.site-footer .footer-main-clean .footer-support .footer-link-grid{grid-template-columns:1fr}
+.site-footer .footer-main-clean .footer-nav a,.site-footer .footer-related-links a{display:flex;align-items:center;min-height:38px;padding:4px 0;font-size:14px;line-height:1.5;text-decoration:none;border:0;color:#eef4ef}
+.site-footer .footer-main-clean a:hover{text-decoration:underline;text-underline-offset:4px;color:#f6d779}
+.site-footer .footer-main-clean a:focus-visible,.site-footer summary:focus-visible{outline:3px solid #f6d779;outline-offset:3px}
+.site-footer .footer-related{grid-column:1/-1;border-top:1px solid #49616d;padding-top:14px;margin-top:0}
+.site-footer .footer-related summary{font-size:14px;font-weight:600;color:#dce7df;cursor:pointer;min-height:36px;line-height:36px}
+.site-footer .footer-related-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px;padding-top:6px}
+.site-footer .site-quick-actions{display:flex;gap:8px;flex-wrap:wrap;flex-direction:row;max-width:none;margin:16px 0 0;padding:0;border:0;background:none}
+.site-footer .site-quick-actions button{width:auto;min-height:40px;padding:7px 10px;font-size:13px;line-height:1.5;background:#243e4d;color:#f1f5ef;border:1px solid #66847f;border-radius:5px;box-shadow:none}
+.site-footer .footer-bottom{max-width:1144px;padding:14px 0 20px;margin:0 auto;border-top:1px solid #49616d;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 20px}
+.site-footer .footer-bottom p{font-size:12px;line-height:1.7;color:#c7d5cf;margin:0}
+.site-footer .footer-bottom small{font-size:12px;margin:0;color:#c7d5cf;align-self:center}
+.site-footer .hlpb-site-status{grid-column:1/-1;font-size:12px;padding-top:0;gap:14px;color:#c7d5cf}
+
+@media(max-width:1024px){
+ main .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ main .hlpb-calendar-layout{grid-template-columns:1fr}
+ main .hlpb-calendar-agenda{border-left:0;border-top:1px solid #b5c6ba}
+ main .hlpb-calendar-grid .hlpb-calendar-day{height:44px}
+ .site-footer .footer-main-clean{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:28px 22px 18px;gap:22px}
+ .site-footer .footer-main-clean .footer-about{grid-column:1/-1}
+ .site-footer .footer-main-clean .footer-about p{max-width:48em}
+ .site-footer .footer-bottom{margin-inline:22px}
+}
+@media(max-width:640px){
+ main>.section{padding:26px 18px}
+ main>.section+.section{padding-top:22px}
+ main .section-heading{grid-template-columns:1fr;gap:9px;margin-bottom:16px}
+ main .section-heading h2{font-size:26px}
+ main .section-heading p{margin:0;font-size:15px}
+ main .intro{padding-top:24px;padding-bottom:18px}
+ main .quick-grid{gap:10px}
+ main .quick-grid>a{grid-template-columns:30px minmax(0,1fr);gap:5px 8px;min-height:110px;padding:14px 12px;align-content:start}
+ main .quick-grid>a>svg{width:30px;height:30px;grid-row:1;padding:5px}
+ main .quick-grid h3{font-size:18px;align-self:center}
+ main .quick-grid p{grid-column:1/-1;font-size:13px;line-height:1.6}
+ main .quick-grid>a::after{display:none}
+ main .quick-grid>a[href="beginners.html"]{min-height:82px;grid-template-columns:34px minmax(0,1fr);padding:16px}
+ main .quick-grid>a[href="beginners.html"] h3{font-size:21px}
+ main .quick-grid>a[href="beginners.html"] p{grid-column:2}
+ main .quick-grid>a:last-child:nth-child(odd){display:grid;min-height:82px;padding:16px}
+ main .hlpb-calendar.section{padding:22px 18px}
+ main .hlpb-calendar-panel,main .hlpb-calendar-agenda{padding:16px}
+ main .hlpb-calendar-controls{gap:5px}
+ main .hlpb-calendar-controls h3{font-size:18px}
+ main .hlpb-calendar-controls button{font-size:12px;padding-inline:8px}
+ main .hlpb-calendar-item>a{font-size:17px}
+ main .home-start-grid{grid-template-columns:1fr;gap:12px}
+ main .home-start-grid>div{padding:16px}
+ main .about-intro{grid-template-columns:1fr;gap:12px}
+ main .beginner-callout,main .home-contact{display:flex;flex-direction:column;align-items:stretch;gap:14px}
+ .page-hero{padding-block:26px}
+ .page-title{padding-inline:18px}
+ main>.content{padding-inline:18px}
+ .page-title p{font-size:16px}
+ .site-footer .footer-main-clean{gap:22px 18px;padding:26px 18px 14px}
+ .site-footer .footer-directory{grid-column:1/-1}
+ .site-footer .footer-main-clean .footer-support{grid-column:1/-1}
+ .site-footer .footer-main-clean .footer-support .footer-link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .site-footer .footer-main-clean .footer-nav a{min-height:42px;font-size:15px}
+ .site-footer .footer-related-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+ .site-footer .footer-related-links a{font-size:13px;min-height:42px}
+ .site-footer .footer-bottom{margin-inline:18px;grid-template-columns:1fr;gap:8px;padding-bottom:18px}
+ .site-footer .hlpb-site-status{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){main .quick-grid>a{transition:none}}

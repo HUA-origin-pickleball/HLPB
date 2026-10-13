@@ -271,7 +271,7 @@
   actions.setAttribute('aria-label', '分享與加入主畫面');
   const share = document.createElement('button'); share.type = 'button'; share.textContent = '分享這個頁面 ↗';
   const home = document.createElement('button'); home.type = 'button'; home.textContent = '加入手機主畫面 ＋';
-  actions.append(share, home); footer.prepend(actions);
+  actions.append(share, home); (footer.querySelector('.footer-about') || footer).append(actions);
   function showDialog(title, paragraphs, copy) {
     const dialog = document.createElement('dialog'); dialog.className = 'site-action-dialog';
     const heading = document.createElement('h2'); heading.id = 'site-action-title'; heading.textContent = title;
@@ -310,6 +310,6 @@
 })();
 
 // Shared discovery and reading tools.
-(()=>{const s=document.createElement("script");s.src="/features.js?v=20261013-editorial-status";document.body.append(s)})();
+(()=>{const s=document.createElement("script");s.src="/features.js?v=20261013-footer-rhythm";document.body.append(s)})();
 
  document.addEventListener("click",function(e){const b=e.target.closest("button[data-video]");if(!b)return;const id=b.dataset.video;if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;const f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+id;f.title=b.dataset.title||"匹克球教學影片";f.allow="encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";b.parentElement.replaceChildren(f);});
