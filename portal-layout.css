@@ -139,3 +139,5 @@ main .home-contact h2{font-size:clamp(23px,2.3vw,29px);line-height:1.4}
 /* Avoid the legacy directory shortcut duplicating the new grouped footer. */
 .footer-main-clean .footer-directory>[data-directory-link]{display:none!important}
 .about-intro .text-link::after{content:none}
+
+main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#326d66;color:#fffaf0}
