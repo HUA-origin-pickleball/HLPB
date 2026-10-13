@@ -141,3 +141,25 @@ main .home-contact h2{font-size:clamp(23px,2.3vw,29px);line-height:1.4}
 .about-intro .text-link::after{content:none}
 
 main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#326d66;color:#fffaf0}
+
+/* Calendar stays side by side, with compact controls on phones. */
+@media(max-width:1024px){
+ main .hlpb-calendar-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+ main .hlpb-calendar-agenda{border-top:0;border-left:1px solid #b5c6ba}
+}
+@media(max-width:640px){
+ main .hlpb-calendar-panel,main .hlpb-calendar-agenda{padding:12px 9px}
+ main .hlpb-calendar-controls{gap:4px;justify-content:center}
+ main .hlpb-calendar-controls h3{order:-1;flex:0 0 100%;font-size:17px;line-height:1.5;margin-bottom:4px}
+ main .hlpb-calendar-controls button{padding:5px 3px;min-height:38px;font-size:11px;flex:1}
+ main .hlpb-calendar-grid{gap:2px}
+ main .hlpb-calendar-weekday{font-size:12px}
+ main .hlpb-calendar-grid .hlpb-calendar-day{height:38px;min-height:38px;font-size:14px;padding:4px 0}
+ main .hlpb-calendar-agenda>h3{font-size:18px}
+ main .hlpb-calendar-item{padding:10px 0}
+ main .hlpb-calendar-item>a{font-size:15px;line-height:1.55;overflow-wrap:anywhere}
+ main .hlpb-calendar-item .hlpb-calendar-date{font-size:12px}
+ main .hlpb-calendar-item p{font-size:13px}
+ main .hlpb-calendar-add{font-size:12px;padding:5px 7px;min-height:38px;max-width:100%}
+ main .hlpb-calendar-all{font-size:14px}
+}
