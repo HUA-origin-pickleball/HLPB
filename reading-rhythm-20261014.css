@@ -1,0 +1,61 @@
+/* Shared readable hierarchy and section spacing. */
+:root{--hlpb-section-gap:56px;--hlpb-body-leading:1.8}
+main>.section,main>.content{padding-top:48px;padding-bottom:48px}
+main>.section+.section{padding-top:48px}
+main .section-heading{margin-bottom:26px;column-gap:28px;row-gap:14px;align-items:start}
+main .section-heading h2,.beginner-section>h2{font-size:28px;line-height:1.45;margin-top:0;margin-bottom:12px}
+main .section-heading p{font-size:17px;line-height:var(--hlpb-body-leading)}
+main .page-title h1{font-size:42px;line-height:1.35}
+main .page-title p{font-size:18px;line-height:1.8;margin-top:18px}
+main .beginner-section{margin-top:var(--hlpb-section-gap);padding-top:28px;border-top:1px solid #bac6bd}
+main .beginner-section:first-child{margin-top:0}
+main .beginner-section>h2{margin-bottom:22px}
+main .beginner-section>p,main .content>p{font-size:17px;line-height:1.8}
+main .gear-budget{margin-bottom:40px}
+main .gear-list{gap:26px}
+main .gear-guide-content{padding:24px}
+main .group-info,.action-grid{gap:24px}
+main .action-card{padding:24px}
+main .action-card p,main .action-card li{font-size:17px;line-height:1.8}
+main .home-start-grid{gap:24px}
+main .home-start-grid>div{padding:24px}
+main .home-start-grid p{line-height:1.8}
+main .home-start,main .about-intro,main .beginner-callout,main .home-contact{padding-top:46px;padding-bottom:46px}
+main .hlpb-calendar.section{padding-top:40px;padding-bottom:48px}
+main .about-intro{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px}
+main .about-intro h2{max-width:18em}
+main .learning-packs,main .quiz-grid,main .beginner-faq,main .skill-level-grid{gap:22px}
+main .skill-card{padding:22px}
+main .prose p,main .prose li{font-size:18px;line-height:1.85}
+main .prose h2{font-size:28px;line-height:1.45;margin-top:40px;margin-bottom:18px}
+main .prose h3{font-size:22px;line-height:1.5;margin-top:28px;margin-bottom:14px}
+main .prose p{margin-block:16px}
+main .prose ul,main .prose ol{margin-block:18px}
+main .prose li+li{margin-top:10px}
+main .quick-grid>a[href="beginners.html"]:last-child:nth-child(odd){display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:16px!important;row-gap:6px!important;padding:22px 42px 22px 22px!important;min-height:110px;background:#fcf9ef;color:#1e2f3e}
+main .quick-grid>a[href="beginners.html"]>svg{position:static!important;grid-column:1!important;grid-row:1/3!important;width:38px!important;height:38px!important;margin:0!important;align-self:center}
+main .quick-grid>a[href="beginners.html"]>h3{position:static!important;grid-column:2!important;grid-row:1!important;margin:0!important;padding:0!important;line-height:1.5;color:#1e2f3e}
+main .quick-grid>a[href="beginners.html"]>p{position:static!important;grid-column:2!important;grid-row:2!important;margin:0!important;padding:0!important;line-height:1.75;color:#52665f}
+@media(max-width:1024px){
+ main .home-start-grid{grid-template-columns:1fr}
+ main .section-heading{grid-template-columns:1fr}
+ main .about-intro{grid-template-columns:1fr;gap:20px}
+ main .about-intro h2{max-width:none}
+}
+@media(max-width:640px){
+ :root{--hlpb-section-gap:40px}
+ main>.section,main>.content{padding-top:32px;padding-bottom:32px}
+ main>.section+.section{padding-top:34px}
+ main .section-heading{margin-bottom:22px;gap:12px}
+ main .page-title h1{font-size:32px}
+ main .page-title p{font-size:17px}
+ main .section-heading h2,.beginner-section>h2,main .prose h2{font-size:25px}
+ main .prose h3{font-size:21px}
+ main .prose p,main .prose li{font-size:17px}
+ main .beginner-section{padding-top:24px}
+ main .home-start,main .about-intro,main .beginner-callout,main .home-contact{padding-top:34px;padding-bottom:34px}
+ main .home-start-grid>div,main .action-card,main .gear-guide-content{padding:20px}
+ main .hlpb-calendar.section{padding-top:32px;padding-bottom:36px}
+ main .quick-grid>a[href="beginners.html"]:last-child:nth-child(odd){grid-template-columns:32px minmax(0,1fr)!important;padding:20px 16px!important;column-gap:14px!important;min-height:104px}
+ main .quick-grid>a[href="beginners.html"]>svg{width:32px!important;height:32px!important}
+}
