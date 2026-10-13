@@ -163,3 +163,26 @@ main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#
  main .hlpb-calendar-add{font-size:12px;padding:5px 7px;min-height:38px;max-width:100%}
  main .hlpb-calendar-all{font-size:14px}
 }
+
+/* Homepage refinement: consistent cream backgrounds and breathing room. */
+main>.section{padding-block:42px}
+main>.section+.section{padding-top:38px}
+main .intro{padding-bottom:34px}
+main .quick-grid{gap:14px}
+main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#fcf9ef;color:#1e2f3e;min-height:104px;padding:22px 40px 22px 20px}
+main .quick-grid>a[href="beginners.html"] h3{color:#1e2f3e;line-height:1.5;margin:0}
+main .quick-grid>a[href="beginners.html"] p,main .quick-grid>a[href="beginners.html"]::after{color:#52665f}
+main .hlpb-calendar.section{padding-top:34px;padding-bottom:42px}
+main .hlpb-calendar-layout{align-items:start}
+main .hlpb-calendar-agenda{background:#fcf9ef}
+main .home-start,main .beginner-callout,main .home-contact{background:transparent}
+main .home-start-grid>div{background:#fcf9ef}
+@media(max-width:640px){
+ main>.section{padding-block:32px}
+ main>.section+.section{padding-top:30px}
+ main .quick-grid{gap:12px}
+ main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{min-height:98px;padding:18px 16px;gap:6px 12px;align-content:center}
+ main .quick-grid>a[href="beginners.html"] h3{font-size:20px}
+ main .quick-grid>a[href="beginners.html"] p{line-height:1.65}
+ main .hlpb-calendar.section{padding-top:30px;padding-bottom:34px}
+}
