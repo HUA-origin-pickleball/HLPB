@@ -2,10 +2,11 @@ from pathlib import Path
 import re,json,html
 from html.parser import HTMLParser
 class Metadata(HTMLParser):
- def __init__(self):super().__init__();self.description=''
+ def __init__(self):super().__init__();self.description='';self.canonical=''
  def handle_starttag(self,tag,attrs):
   values=dict(attrs)
   if tag=='meta' and values.get('name')=='description':self.description=values.get('content','')
+  if tag=='link' and values.get('rel')=='canonical':self.canonical=values.get('href','')
 r=Path(__file__).resolve().parents[1]
 s=(r/'script.js').read_text(); data=json.JSONDecoder().raw_decode(s.split('const fallback=',1)[1])[0]
 rows=[]
@@ -13,6 +14,7 @@ for folder,kind in [('articles','文章'),('news','消息'),('events','賽事')]
  for p in sorted((r/folder).glob('*.html')):
   text=p.read_text(); title=re.search(r'<h1[^>]*>(.*?)</h1>',text,re.S)
   metadata=Metadata();metadata.feed(text)
+  if metadata.canonical and metadata.canonical!='https://hlpb.com.tw/'+str(p.relative_to(r)):continue
   if not title: continue
   main=re.search(r'<main[^>]*>(.*?)</main>',text,re.S)
   body=html.unescape(re.sub('<[^>]+>',' ',main[1] if main else ''))
