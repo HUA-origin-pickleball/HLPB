@@ -13,6 +13,11 @@
 .site-tree summary:focus-visible,.site-tree a:focus-visible{outline:2px solid #376e68;outline-offset:4px;border-radius:2px}
 .site-tree-count{display:inline-block;margin-left:.8em;font-size:.8rem;font-weight:400;color:var(--muted,#65706d)}
 .site-tree-note{display:block;font-size:.88rem;color:var(--muted,#65706d);line-height:1.65;margin-top:2px}
+.site-tree-branch-title{display:block;padding-block:2px;font-size:1rem;font-weight:750}
+.site-tree-simple .site-tree-branch>ul{margin-top:8px}
+.site-tree-simple li{padding-block:5px}
+.site-tree-simple li::before{top:20px}
+.site-tree-role{font-size:.9rem;color:var(--muted,#65706d);overflow-wrap:anywhere}
 .site-tree details[open]>summary{margin-bottom:10px}
 .site-tree li>a{display:inline-block;min-height:30px;padding-block:3px}
 .site-tree>.site-tree-root+ul>li{padding-block:16px}
