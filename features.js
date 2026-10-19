@@ -1,5 +1,7 @@
 (()=>{
 'use strict';if(window.hlpbBaseFeaturesReady)return;window.hlpbBaseFeaturesReady=true;
+const appHead=document.head;if(!appHead.querySelector('link[rel="manifest"]')){const m=document.createElement('link');m.rel='manifest';m.href='/manifest.webmanifest?v=20261019';appHead.append(m)}for(const [rel,src,size] of [['icon','/assets/icons/hlpb-app-192-v1.png','192x192'],['apple-touch-icon','/assets/icons/hlpb-app-180-v1.png','180x180']]){let link=appHead.querySelector('link[rel="'+rel+'"]');if(!link){link=document.createElement('link');link.rel=rel;appHead.append(link)}link.href=src;link.sizes=size;if(rel==='icon')link.type='image/png'}
+
 const root=document.querySelector('main');if(!root)return;
 const css=document.createElement('link');css.rel='stylesheet';css.href='/features.css?v=20261013-status';document.head.append(css);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n};

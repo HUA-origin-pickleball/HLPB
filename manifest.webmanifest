@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "HLPB 花蓮匹克球資訊站",
+  "short_name": "HLPB",
+  "lang": "zh-Hant",
+  "description": "花蓮匹克球場地、球局、賽事與新手資訊",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#193345",
+  "icons": [
+    {
+      "src": "/assets/icons/hlpb-app-192-v1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/hlpb-app-512-v1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
