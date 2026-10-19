@@ -1,0 +1,611 @@
+{
+  "checked_articles": 100,
+  "before": [
+    {
+      "slug": "doubles-score-guide",
+      "characters": 351,
+      "sections": 3
+    },
+    {
+      "slug": "drop-serve-guide",
+      "characters": 228,
+      "sections": 1
+    },
+    {
+      "slug": "dupr-rating-hualien-guide",
+      "characters": 573,
+      "sections": 4
+    },
+    {
+      "slug": "find-hualien-pickleball-friends",
+      "characters": 600,
+      "sections": 0
+    },
+    {
+      "slug": "first-pickleball-checklist",
+      "characters": 533,
+      "sections": 0
+    },
+    {
+      "slug": "first-pickleball-class-preparation",
+      "characters": 412,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-covered-outdoor-courts",
+      "characters": 159,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-night-pickleball-court-access",
+      "characters": 173,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-pickleball-association-promotion",
+      "characters": 758,
+      "sections": 5
+    },
+    {
+      "slug": "hualien-pickleball-borrow-paddle",
+      "characters": 395,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-pickleball-course-types",
+      "characters": 481,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-pickleball-courts-guide",
+      "characters": 251,
+      "sections": 1
+    },
+    {
+      "slug": "hualien-pickleball-find-coach",
+      "characters": 487,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-pickleball-friends-without-app",
+      "characters": 235,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-pickleball-group-information",
+      "characters": 152,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-pickleball-rain-probability",
+      "characters": 333,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-pickleball-registration-confirmation",
+      "characters": 262,
+      "sections": 1
+    },
+    {
+      "slug": "hualien-pickleball-scoring-before-play",
+      "characters": 212,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-pickleball-tournament-regulations",
+      "characters": 203,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-pickleball-waitlist-guide",
+      "characters": 157,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-rainy-day-indoor-pickleball",
+      "characters": 228,
+      "sections": 2
+    },
+    {
+      "slug": "hualien-school-court-rental-checklist",
+      "characters": 157,
+      "sections": 0
+    },
+    {
+      "slug": "hualien-school-pickleball-access",
+      "characters": 262,
+      "sections": 3
+    },
+    {
+      "slug": "indoor-outdoor-pickleballs",
+      "characters": 431,
+      "sections": 0
+    },
+    {
+      "slug": "kitchen-zone-rule",
+      "characters": 311,
+      "sections": 3
+    },
+    {
+      "slug": "origin-pickleball-hualien-promotion",
+      "characters": 1139,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-after-error-mindset",
+      "characters": 531,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-around-post-atp",
+      "characters": 344,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-attack-defense-decisions",
+      "characters": 699,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-backhand-guide",
+      "characters": 698,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-ball-hits-clothing",
+      "characters": 148,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-ball-hits-paddle-hand",
+      "characters": 148,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-ball-introduction",
+      "characters": 490,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-ball-replacement-check",
+      "characters": 478,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-block-volley-guide",
+      "characters": 646,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-court-dimensions",
+      "characters": 240,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-court-positioning-guide",
+      "characters": 651,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-court-safety",
+      "characters": 189,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-cracked-ball-replay",
+      "characters": 171,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-dink-beginners",
+      "characters": 662,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-double-hit-rule",
+      "characters": 443,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-doubles-coordination-guide",
+      "characters": 741,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-doubles-switching-sides",
+      "characters": 374,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-first-equipment",
+      "characters": 221,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-forehand-guide",
+      "characters": 713,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-history-1965",
+      "characters": 265,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-hitting-out-control",
+      "characters": 468,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-kitchen-name-guide",
+      "characters": 445,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-kotc-format",
+      "characters": 334,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-line-calls",
+      "characters": 185,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-milp-team-format",
+      "characters": 328,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-name-origin",
+      "characters": 294,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-net-contact-guide",
+      "characters": 464,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-new-partner-communication",
+      "characters": 478,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-new-rule-effective-date",
+      "characters": 259,
+      "sections": 1
+    },
+    {
+      "slug": "pickleball-official-purchase-channel",
+      "characters": 454,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-overhead-guide",
+      "characters": 708,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-paddle-accessories-guide",
+      "characters": 280,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-paddle-added-weight-guide",
+      "characters": 201,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-approval-check",
+      "characters": 481,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-car-storage",
+      "characters": 173,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-cleaning",
+      "characters": 175,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-grip-guide",
+      "characters": 530,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-length-vs-handle",
+      "characters": 244,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-paddle-material-thickness-guide",
+      "characters": 1501,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-price-differences",
+      "characters": 593,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-paddle-shape-guide",
+      "characters": 501,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-paddle-table-tennis-badminton-tennis",
+      "characters": 883,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-paddle-weight-guide",
+      "characters": 582,
+      "sections": 1
+    },
+    {
+      "slug": "pickleball-protective-eyewear",
+      "characters": 268,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-read-court-tactics",
+      "characters": 752,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-reset-shot-guide",
+      "characters": 669,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-return-of-serve-guide",
+      "characters": 691,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-round-robin-knockout",
+      "characters": 161,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-round-robin-tiebreakers",
+      "characters": 354,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-rule-understanding-guide",
+      "characters": 656,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-serve-net-contact",
+      "characters": 382,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-serve-position-guide",
+      "characters": 728,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-shot-placement-guide",
+      "characters": 709,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-singles-doubles-difference",
+      "characters": 525,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-skill-level-guide",
+      "characters": 1172,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-stray-ball-etiquette",
+      "characters": 161,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-swing-twist-weight-guide",
+      "characters": 585,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-team-communication-guide",
+      "characters": 789,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-tempo-control-guide",
+      "characters": 705,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-third-shot-drive-guide",
+      "characters": 686,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-third-shot-drop-drive",
+      "characters": 604,
+      "sections": 0
+    },
+    {
+      "slug": "pickleball-third-shot-drop-guide",
+      "characters": 694,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-timeout-guide",
+      "characters": 337,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-tournament-after-check-in",
+      "characters": 236,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-tournament-ball-selection",
+      "characters": 324,
+      "sections": 1
+    },
+    {
+      "slug": "pickleball-uncertain-line-call",
+      "characters": 242,
+      "sections": 2
+    },
+    {
+      "slug": "pickleball-used-paddle-buying-checklist",
+      "characters": 469,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-volley-guide",
+      "characters": 656,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-warm-up-cool-down",
+      "characters": 169,
+      "sections": 2
+    },
+    {
+      "slug": "singles-serving-sides",
+      "characters": 209,
+      "sections": 1
+    },
+    {
+      "slug": "taichang-community-pickleball-promotion",
+      "characters": 733,
+      "sections": 4
+    },
+    {
+      "slug": "taiwan-pickleball-tournaments-introduction",
+      "characters": 465,
+      "sections": 4
+    },
+    {
+      "slug": "two-bounce-rule",
+      "characters": 259,
+      "sections": 2
+    },
+    {
+      "slug": "what-is-pickleball-hualien-beginners",
+      "characters": 288,
+      "sections": 3
+    }
+  ],
+  "strengthened_articles": [
+    {
+      "slug": "indoor-outdoor-pickleballs",
+      "characters": 883,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-ball-replacement-check",
+      "characters": 922,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-cracked-ball-replay",
+      "characters": 652,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-official-purchase-channel",
+      "characters": 943,
+      "sections": 6
+    },
+    {
+      "slug": "pickleball-paddle-accessories-guide",
+      "characters": 721,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-paddle-added-weight-guide",
+      "characters": 651,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-approval-check",
+      "characters": 927,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-car-storage",
+      "characters": 608,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-cleaning",
+      "characters": 609,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-grip-guide",
+      "characters": 965,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-length-vs-handle",
+      "characters": 632,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-paddle-material-thickness-guide",
+      "characters": 1943,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-price-differences",
+      "characters": 1297,
+      "sections": 6
+    },
+    {
+      "slug": "pickleball-paddle-shape-guide",
+      "characters": 956,
+      "sections": 3
+    },
+    {
+      "slug": "pickleball-paddle-table-tennis-badminton-tennis",
+      "characters": 1274,
+      "sections": 8
+    },
+    {
+      "slug": "pickleball-paddle-weight-guide",
+      "characters": 1048,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-protective-eyewear",
+      "characters": 694,
+      "sections": 5
+    },
+    {
+      "slug": "pickleball-swing-twist-weight-guide",
+      "characters": 1090,
+      "sections": 7
+    },
+    {
+      "slug": "pickleball-tournament-ball-selection",
+      "characters": 754,
+      "sections": 4
+    },
+    {
+      "slug": "pickleball-used-paddle-buying-checklist",
+      "characters": 929,
+      "sections": 6
+    }
+  ],
+  "news_strengthened": [
+    "xincheng-police-pickleball-training-2026"
+  ],
+  "note": "字數僅供篩檢，內容品質以主題完整性、來源與讀者需求判斷；其餘文章仍需依題材逐篇編輯。"
+}
