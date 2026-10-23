@@ -18,7 +18,6 @@ main [id]{scroll-margin-top:105px}
 .reader-compare thead th{background:#dfe9e2;color:#203747}
 .gear-needs{margin-bottom:32px}.gear-needs h2{margin-top:0}
 .home-secondary-links{justify-content:center;margin:20px 0 0}
-main .intro .quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .hero-actions{flex-wrap:wrap;gap:12px}
 .hero-actions a{min-height:48px}
 main .home-latest.latest-reading{display:block;max-width:1200px;margin:0 auto;padding:28px;background:transparent;border:0;overflow:visible}
@@ -35,7 +34,7 @@ main .home-latest.latest-reading{display:block;max-width:1200px;margin:0 auto;pa
 @media(max-width:700px){
  main>.reader-jump-nav{padding-inline:20px;gap:8px}
  .reader-jump-nav a,.home-secondary-links a{padding:10px 12px;font-size:15px}
- main .intro .quick-grid,.home-latest .latest-reading-track{grid-template-columns:minmax(0,1fr)}
+ .home-latest .latest-reading-track{grid-template-columns:minmax(0,1fr)}
  main .home-latest.latest-reading{padding:24px 20px}
  .home-latest .latest-reading-track{gap:12px}
  .home-latest .latest-reading-track h3{font-size:19px}
