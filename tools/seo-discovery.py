@@ -31,11 +31,11 @@ for kind,id in [('articles','article-list'),('news','news-page-list')]:
  # A genuine reader-facing subject directory makes every published article reachable.
  if kind=='articles':
   directory='<section class="article-topic-directory" aria-labelledby="topic-directory-title"><h2 id="topic-directory-title">依主題找文章</h2><div>'
-  for cat in ['認識匹克球','新手規則','場地知識','找球友','球具入門','在地推廣']:
+  for cat in dict.fromkeys(x['category'] for x in articles):
    entries=[x for x in articles if x['category']==cat]
    directory+=f'<details><summary>{cat}（{len(entries)} 篇）</summary><ul>'+''.join(f'<li><a href="articles/{esc(x["slug"])}.html">{esc(x["title"])}</a></li>' for x in entries)+'</ul></details>'
   directory+='</div></section>'
-  s=file.read_text();s=re.sub(r'<section class="article-topic-directory"[\s\S]*?</section>','',s)
+  s=file.read_text();s=re.sub(r'<section\b(?=[^>]*\bclass="[^"]*\barticle-topic-directory\b)[^>]*>[\s\S]*?</section>','',s)
   s=s.replace('<noscript><p class="empty">請開啟瀏覽器的 JavaScript 以讀取最新文章。</p></noscript>',directory+'<noscript><p>可直接閱讀上方文章，或從主題目錄選擇其他文章。</p></noscript>')
   if directory not in s:s=s.replace('</main>',directory+'</main>')
   file.write_text(s)
