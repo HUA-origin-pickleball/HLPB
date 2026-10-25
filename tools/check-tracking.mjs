@@ -7,5 +7,6 @@ assert.equal(a.split("fbq('track', 'PageView')").length-1,1);
 assert.ok(a.indexOf('HLPB_TRACKING_HEAD_START')<a.indexOf('<title>'));
 assert.ok(a.indexOf('HLPB_TRACKING_BODY_START')<a.indexOf('內容'));
 assert.throws(()=>addTracking(p.replace('內容',"fbq('init','other')")));
+assert.equal(a.split("gtag('config', 'G-V8MF7X50MV')").length-1,1);
 assert.equal(installTracking(),0);
 console.log('Tracking placement and duplicate checks passed');

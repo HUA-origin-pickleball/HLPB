@@ -10,6 +10,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-575FXVC9');</script>
 <!-- End Google Tag Manager -->
+<!-- Google tag (GA4): managed here, not also through GTM. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8MF7X50MV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-V8MF7X50MV');
+</script>
+<!-- End Google tag (GA4) -->
 <!-- Meta Pixel Code: managed here; do not also fire this Pixel through GTM. -->
 <script>
 !function(f,b,e,v,n,t,s)

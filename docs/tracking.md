@@ -1,6 +1,7 @@
 # HLPB 廣告追蹤
 
 - GTM 容器：GTM-575FXVC9
+- GA4：G-V8MF7X50MV，網站直接安裝。不要在 GTM 重複設定同一個評估 ID。
 - Meta Pixel：1649133696716796，網站直接安裝，送出 PageView。
 - 廣告帳號 1842766720194848 是廣告管理用途，不放入網頁追蹤碼。
 
@@ -13,3 +14,5 @@
 同一 Meta Pixel 不可同時透過 GTM 再送 PageView。若要轉由 GTM 管理，請在同次遷移移除本工具內的 Meta 程式及 noscript 圖片，重新套用全站並驗證。GTM 的公開程式檢查只能看到已發布版本，不代表草稿或後續版本沒有重複標籤。
 
 正式數據是否收到，請用 GTM Tag Assistant 與 Meta 事件管理工具測試。本次不變更隱私或 Cookie 同意介面。
+
+GA4 改由 GTM 管理時，同步移除 install-tracking.mjs 的 Google tag 區塊，再重新套用全站。GA4 即時報表是否收到資料須另行驗證。
