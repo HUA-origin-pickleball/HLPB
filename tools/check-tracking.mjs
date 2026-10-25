@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {addTracking,installTracking} from './install-tracking.mjs';
+const p='<html><head><title>Test</title></head><body class="test">內容</body></html>';
+const a=addTracking(p);
+assert.equal(addTracking(a),a);
+assert.equal(a.split("fbq('track', 'PageView')").length-1,1);
+assert.ok(a.indexOf('HLPB_TRACKING_HEAD_START')<a.indexOf('<title>'));
+assert.ok(a.indexOf('HLPB_TRACKING_BODY_START')<a.indexOf('內容'));
+assert.throws(()=>addTracking(p.replace('內容',"fbq('init','other')")));
+assert.equal(installTracking(),0);
+console.log('Tracking placement and duplicate checks passed');

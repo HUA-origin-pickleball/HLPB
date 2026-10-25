@@ -1,3 +1,4 @@
+import {installTracking} from './install-tracking.mjs';
 // Generate readable HTML detail pages from the verified fallback content in script.js?v=20261007-motion2.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import vm from 'node:vm';
@@ -68,3 +69,6 @@ const upcoming=data.events.filter(x=>x.date>=today).sort((a,b)=>a.date.localeCom
 const past=data.events.filter(x=>x.date<today).sort((a,b)=>b.date.localeCompare(a.date));
 const eventCard=x=>`<article class="event">${x.imageUrl?`<a class="event-poster" href="${esc(x.imageUrl)}" target="_blank" rel="noopener noreferrer" aria-label="放大檢視${esc(x.name)}海報"><img src="${esc(x.imageUrl)}" alt="${esc(x.name)}活動海報" loading="lazy"></a>`:'<div class="event-image" aria-hidden="true"></div>'}<div><span class="tag">${esc(x.status)}</span><h2>${esc(x.name)}</h2><p><time datetime="${esc(x.date)}">${esc(x.date)}</time>${x.endDate?`–<time datetime="${esc(x.endDate)}">${esc(x.endDate)}</time>`:''}${x.time?` ${esc(x.time)}`:''}｜${esc(x.location)}</p><p class="note">${esc(x.summary)}</p>${x.detailUrl?`<a class="text-link event-detail-link" href="${esc(x.detailUrl)}">查看完整資訊</a>`:''}${x.url?`<a class="text-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.linkText||'查看活動來源')}</a>`:''}</div></article>`;
 updateSnapshot('events.html','EVENT_STATIC_START','EVENT_STATIC_END',upcoming.map(eventCard).join('')+(past.length?`<details class="past-events"><summary>查看已結束活動</summary><div>${past.map(eventCard).join('')}</div></details>`:''));
+
+// Keep tracking on regenerated detail pages.
+installTracking();
