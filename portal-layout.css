@@ -13,7 +13,7 @@ main>.content{max-width:1200px;padding:28px 28px 40px}
 
 main .intro{padding-top:30px;padding-bottom:26px}
 main .quick-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-main .quick-grid>a{display:grid;grid-template-columns:38px minmax(0,1fr);grid-template-rows:auto auto;gap:4px 14px;align-content:center;min-height:96px;padding:18px 38px 18px 18px;border:1px solid #a7bbb4;border-radius:8px;background:#fcf9ef;box-shadow:none;transition:border-color 160ms ease,background 160ms ease}
+main .quick-grid>a{display:grid;grid-template-columns:38px minmax(0,1fr);grid-template-rows:auto auto;gap:4px 14px;align-content:center;min-height:96px;padding:18px 38px 18px 18px;border:1px solid #a7bbb4;border-radius:8px;background:#ffffff;box-shadow:none;transition:border-color 160ms ease,background 160ms ease}
 main .quick-grid>a::before{display:none}
 main .quick-grid>a::after{right:15px;top:18px;color:#3d746d;font-size:19px}
 main .quick-grid>a>svg{position:static;width:38px;height:38px;grid-row:1/3;padding:7px;box-sizing:border-box;border-radius:8px;background:#e3eee7;color:#376f67;align-self:center}
@@ -23,8 +23,8 @@ main .quick-grid h3{font-size:20px;line-height:1.35;margin:0}
 main .quick-grid p{grid-column:2;font-size:14px;line-height:1.5;margin:0;color:#52665f}
 main .quick-grid>a:hover{background:#f2f5e9;border-color:#3d746d;transform:none;box-shadow:none}
 main .quick-grid>a:focus-visible{outline:3px solid #d5aa35;outline-offset:3px}
-main .quick-grid>a[href="beginners.html"]{grid-column:1/-1;min-height:90px;background:#326d66;border-color:#326d66;color:#fffaf0}
-main .quick-grid>a[href="beginners.html"] p,main .quick-grid>a[href="beginners.html"]::after{color:#fffaf0}
+main .quick-grid>a[href="beginners.html"]{grid-column:1/-1;min-height:90px;background:#326d66;border-color:#326d66;color:#ffffff}
+main .quick-grid>a[href="beginners.html"] p,main .quick-grid>a[href="beginners.html"]::after{color:#ffffff}
 main .quick-grid>a[href="beginners.html"]>svg{background:#f6d779;color:#183746}
 main .quick-grid>a[href="beginners.html"] h3{font-size:23px}
 main .quick-grid>a:last-child:nth-child(odd){display:grid;min-height:90px;padding:18px 38px 18px 18px;grid-column:1/-1}
@@ -32,7 +32,7 @@ main .quick-grid>a:last-child:nth-child(odd){display:grid;min-height:90px;paddin
 main .hlpb-calendar.section{padding-top:24px;padding-bottom:30px}
 main .hlpb-calendar>h2{font-size:clamp(24px,2.6vw,32px);line-height:1.3;margin:0 0 10px}
 main .hlpb-calendar>p{font-size:16px;line-height:1.6;margin:0 0 18px;color:#52665f}
-main .hlpb-calendar-layout{gap:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;border:1px solid #9fb4aa;border-radius:10px;background:#fcf9ef;overflow:hidden}
+main .hlpb-calendar-layout{gap:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;border:1px solid #9fb4aa;border-radius:10px;background:#ffffff;overflow:hidden}
 main .hlpb-calendar-panel,main .hlpb-calendar-agenda{border:0;box-shadow:none;border-radius:0;padding:22px;background:transparent}
 main .hlpb-calendar-agenda{background:#e8eee4;border-left:1px solid #b5c6ba}
 main .hlpb-calendar-controls{margin-bottom:14px}
@@ -43,11 +43,11 @@ main .hlpb-calendar-item{padding:12px 0}
 main .hlpb-calendar-item>a{font-size:18px;line-height:1.5}
 main .hlpb-calendar-item .hlpb-calendar-date{font-size:14px;font-weight:600}
 main .hlpb-calendar-item p{font-size:15px;line-height:1.55}
-main .hlpb-calendar-add{margin:5px 0;min-height:40px;background:#fcf9ef}
+main .hlpb-calendar-add{margin:5px 0;min-height:40px;background:#ffffff}
 
 main .home-start{background:#e8efe7;border-radius:10px}
 main .home-start-grid{gap:18px}
-main .home-start-grid>div{padding:18px;border:0;border-top:3px solid #437c72;background:#fcf9ef;border-radius:0 0 8px 8px;box-shadow:none}
+main .home-start-grid>div{padding:18px;border:0;border-top:3px solid #437c72;background:#ffffff;border-radius:0 0 8px 8px;box-shadow:none}
 main .home-start-grid>div:nth-child(2){border-top-color:#7da8b1}
 main .home-start-grid>div:nth-child(3){border-top-color:#e5b747}
 main .home-start-grid h3{font-size:21px;margin-top:0}
@@ -140,7 +140,7 @@ main .home-contact h2{font-size:clamp(23px,2.3vw,29px);line-height:1.4}
 .footer-main-clean .footer-directory>[data-directory-link]{display:none!important}
 .about-intro .text-link::after{content:none}
 
-main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#326d66;color:#fffaf0}
+main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#326d66;color:#ffffff}
 
 /* Calendar stays side by side, with compact controls on phones. */
 @media(max-width:1024px){
@@ -169,14 +169,14 @@ main>.section{padding-block:42px}
 main>.section+.section{padding-top:38px}
 main .intro{padding-bottom:34px}
 main .quick-grid{gap:14px}
-main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#fcf9ef;color:#1e2f3e;min-height:104px;padding:22px 40px 22px 20px}
+main .quick-grid>a:last-child:nth-child(odd)[href="beginners.html"]{background:#ffffff;color:#1e2f3e;min-height:104px;padding:22px 40px 22px 20px}
 main .quick-grid>a[href="beginners.html"] h3{color:#1e2f3e;line-height:1.5;margin:0}
 main .quick-grid>a[href="beginners.html"] p,main .quick-grid>a[href="beginners.html"]::after{color:#52665f}
 main .hlpb-calendar.section{padding-top:34px;padding-bottom:42px}
 main .hlpb-calendar-layout{align-items:start}
-main .hlpb-calendar-agenda{background:#fcf9ef}
+main .hlpb-calendar-agenda{background:#ffffff}
 main .home-start,main .beginner-callout,main .home-contact{background:transparent}
-main .home-start-grid>div{background:#fcf9ef}
+main .home-start-grid>div{background:#ffffff}
 @media(max-width:640px){
  main>.section{padding-block:32px}
  main>.section+.section{padding-top:30px}
