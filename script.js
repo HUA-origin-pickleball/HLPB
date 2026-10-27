@@ -309,6 +309,6 @@
 })();
 
 // Shared discovery and reading tools.
-(()=>{const s=document.createElement("script");s.src="/features.js?v=20261019-complete";document.body.append(s)})();
+(()=>{const s=document.createElement("script");s.src="/features.js?v=20261027-calendar";document.body.append(s)})();
 
  document.addEventListener("click",function(e){const b=e.target.closest("button[data-video]");if(!b)return;const id=b.dataset.video;if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;const f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+id;f.title=b.dataset.title||"匹克球教學影片";f.allow="encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";b.parentElement.replaceChildren(f);});
