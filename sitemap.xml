@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hlpb.com.tw/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -179,4 +179,6 @@
   <url><loc>https://hlpb.com.tw/articles/pickleball-split-step-timing.html</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://hlpb.com.tw/articles/pickleball-windy-court-serve.html</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://hlpb.com.tw/articles/pickleball-replace-overgrip.html</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://hlpb.com.tw/news/zhongyuan-pickleball-experience-20261119.html</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://hlpb.com.tw/news/guangfu-pickleball-experience-2026.html</loc><lastmod>2026-10-28</lastmod></url>
 </urlset>
